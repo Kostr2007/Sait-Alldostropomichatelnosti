@@ -46,3 +46,31 @@ npm run dev
 - **Определиться с стилем и главным содать main.css(✨Или использовать существующий!✨)**
 - **Продумать схему создание страниц достропомичательности прямо в сайте! 🥽🥼**
 - **И прочее XD с чашкой молока и печеньками! 🥛🍪**
+
+
+## Структура папок! 🔨😺🧢
+
+На тот случай если запутаюсь **Я** или **ВЫ** где лежат папки!
+
+```
+├── public
+│   ├── favicon.ico
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   ├── astro.svg
+│   │   └── background.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   ├── pages
+│   │   └── index.astro
+│   └── styles
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── package-lock.json
+├── README.md
+└── tsconfig.json
+```
