@@ -1,60 +1,48 @@
-# Astro Starter Kit: Basics
+# 🌆 Достопримечательности Набережных Челнов
 
-```sh
-npm create astro@latest -- --template basics
+Современный сайт-путеводитель по всем интересным местам Набережных Челнов.
+
+Полная переделка старых сайтов... создавая по **УМУ**! С новым ui, библиотеками и так далее!
+
+![Hero](public/images/hero-kama.jpg)
+
+## ✨ Особенности
+
+- Красивый и быстрый (Astro + Tailwind) [😺 ✔️].
+- Интерактивная карта (MapLibre GL) [😿 ❌].
+- Фильтры, поиск и карточки достопримечательностей [😿 ❌].
+- Адаптивный дизайн в стиле GNOME/Adwaita + татарские акценты [😿 ❌].
+- Dark/Light тема [😿 ❌].
+- Легко добавлять новые объекты через Markdown [😿 ❌].
+
+## 🛠 Технический стек
+
+- **Astro 6** — основной фреймворк
+- **TypeScript**
+- **React** — для интерактивных компонентов
+- **Tailwind CSS** + собственные стили
+- **MapLibre GL** — карта
+- **sharp** — оптимизация изображений
+- **Formspree** — формы без бэкенда
+- **Content Collections** — удобная работа с Markdown
+
+## 🚀 Как запустить локально
+
+```bash
+# 1. Клонируем
+git clone https://github.com/Kostr2007/Sait-Alldostropomichatelnosti.git
+cd Sait-Alldostropomichatelnosti
+
+# 2. Устанавливаем зависимости
+npm install
+
+# 3. Запускаем dev-сервер
+npm run dev
 ```
 
-<!-- ASTRO:REMOVE:START -->
+## 🐈 Задачи!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-<!-- ASTRO:REMOVE:END -->
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-<!-- ASTRO:REMOVE:START -->
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-<!-- ASTRO:REMOVE:END -->
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Добавление интеграций MapLibre GL и последующая тестировка.**
+- **Определиться с стилем и главным содать main.css(Или использовать существующий!)**
+- **Продумать схему создание страниц достропомичательности прямо в сайте!**
+- **И прочее XD**
