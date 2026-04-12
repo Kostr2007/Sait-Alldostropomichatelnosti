@@ -1,60 +1,96 @@
-# Astro Starter Kit: Basics
+# 🌆 Достопримечательности Набережных Челнов
 
-```sh
-npm create astro@latest -- --template basics
+Современный сайт-путеводитель по всем интересным местам Набережных Челнов.
+
+Полная переделка старых версий. На этот раз — **по уму**, с чистой архитектурой, хорошим UX и современным стеком.
+
+![Hero](public/images/hero-kama.jpg) <!-- потом заменишь на реальное фото -->
+
+## ✨ Особенности
+
+- Красивый и быстрый (Astro + Tailwind)
+- Интерактивная карта (MapLibre GL)
+- Фильтры, поиск и карточки достопримечательностей
+- Адаптивный дизайн в стиле GNOME/Adwaita + татарские акценты
+- Dark/Light тема
+- Легко добавлять новые объекты через Markdown
+
+## 🛠️ Технический стек
+
+- **Astro 6** — основной фреймворк
+- **TypeScript**
+- **React** — для интерактивных компонентов
+- **Tailwind CSS** + собственные стили
+- **MapLibre GL** — карта
+- **sharp** — оптимизация изображений
+- **Formspree** — формы без бэкенда
+- **Content Collections** — удобная работа с Markdown
+
+## 🚀 Как запустить локально
+
+```bash
+# 1. Клонируем
+git clone https://github.com/Kostr2007/Sait-Alldostropomichatelnosti.git
+cd Sait-Alldostropomichatelnosti
+
+# 2. Устанавливаем зависимости
+npm install
+
+# 3. Запускаем dev-сервер
+npm run dev```
+
+## Как работать с сайтом! 🧤😺🥼
+
 ```
 
-<!-- ASTRO:REMOVE:START -->
+git checkout main
+git pull --rebase origin main   # сначала синхронизируйся!
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+# ... делаешь изменения
 
-<!-- ASTRO:REMOVE:END -->
+git add .
+git commit -m "..."
+git push
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```
 
-<!-- ASTRO:REMOVE:START -->
+## Стркуктура проекта 🐱🌳
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Если забуду **Я** или **ТЫ** где лежать файлы, то вот тебе шпаргалка по структуре проекта:
 
-<!-- ASTRO:REMOVE:END -->
+```
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+.
+├── public
+│   ├── favicon.ico
+│   └── favicon.svg
 ├── src
 │   ├── assets
-│   │   └── astro.svg
+│   │   ├── astro.svg
+│   │   └── background.svg
 │   ├── components
 │   │   └── Welcome.astro
+│   ├── content
+│   │   └── attractions
+│   │       └── template.md
 │   ├── layouts
 │   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── pages
+│   │   └── index.astro
+│   └── styles
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── package-lock.json
+├── README.md
+└── tsconfig.json
+
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Обновление 0.0.1
 
-## 🧞 Commands
+Добавлено:
 
-All commands are run from the root of the project, from a terminal:
+- Шаблон достропомичательности в `src/content/attractions/template.md` 📃
+- Снесено случайно README.md, переделано заново. 😿
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
