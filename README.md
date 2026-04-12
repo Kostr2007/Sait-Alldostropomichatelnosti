@@ -37,12 +37,12 @@ cd Sait-Alldostropomichatelnosti
 npm install
 
 # 3. Запускаем dev-сервер
-npm run dev```
+npm run dev
+```
 
 ## Как работать с сайтом! 🧤😺🥼
 
 ```
-
 git checkout main
 git pull --rebase origin main   # сначала синхронизируйся!
 
@@ -93,4 +93,3 @@ git push
 
 - Шаблон достропомичательности в `src/content/attractions/template.md` 📃
 - Снесено случайно README.md, переделано заново. 😿
-
