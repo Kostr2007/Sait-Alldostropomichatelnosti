@@ -60,9 +60,9 @@ git push
 
 ### Основные цвета проекта:
 
-- <span style="background-color: #241f31; color: #f6f5f4; padding: 2px 8px; border-radius: 4px; border: 1px solid #3584e4;">#241f31</span> — **Основной фон** ☁️
-- <span style="background-color: #f6f5f4; color: #241f31; padding: 2px 8px; border-radius: 4px;">#f6f5f4</span> — **Цвет текста** 💬
-- <span style="background-color: #3584e4; color: #ffffff; padding: 2px 8px; border-radius: 4px;">#3584e4</span> — **Акцентный цвет** 🎯
+! #241f31 — **Основной фон** ☁️
+! #f6f5f4 — **Цвет текста** 💬
+! #3584e4 — **Акцентный цвет** 🎯
 
 ## Задачи на ближайшее время 🧑‍💻🐈
 
