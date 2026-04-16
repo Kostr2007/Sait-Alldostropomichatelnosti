@@ -56,13 +56,13 @@ git push
 
 ## Основные стили и цветовая палитра 🎨😺🖌
 
-В этом сайте будет использовать чётные числа... тоесть не px-6 px-3 ❌. А px-6 px-2 ✔. А цветовая палитра будет от GNOME! Либо бери из приложения Pallete или этот [сайт с палитрой от GNOME](https://developer.gnome.org/hig/reference/palette.html)!
+В этом сайте будут использоваться только чётные числа (например, `px-6`, `px-2` ✔️, а не `px-3` ❌). Цветовая палитра взята из [GNOME HIG](https://developer.gnome.org/hig/reference/palette.html).
 
-Но основные цвета для всего проекта будут:
+### Основные цвета проекта:
 
-- #241f31 основной фон. ☁
-- #f6f5f4 сам текст! 💬
-- А акцентные цвета будут #3584e4! 🎯
+- <span style="background-color: #241f31; color: #f6f5f4; padding: 2px 8px; border-radius: 4px; border: 1px solid #3584e4;">#241f31</span> — **Основной фон** ☁️
+- <span style="background-color: #f6f5f4; color: #241f31; padding: 2px 8px; border-radius: 4px;">#f6f5f4</span> — **Цвет текста** 💬
+- <span style="background-color: #3584e4; color: #ffffff; padding: 2px 8px; border-radius: 4px;">#3584e4</span> — **Акцентный цвет** 🎯
 
 ## Задачи на ближайшее время 🧑‍💻🐈
 
