@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+/* === GNOME / Adwaita Theme === */
+@theme {
+  /* Основные цвета */
+  --color-gnome-dark: #241f31;
+  --color-gnome-bg: #241f31;
+  --color-gnome-surface: #3d3846;
+  --color-gnome-overlay: #2c2836;
+
+  --color-gnome-text: #f6f5f4;
+  --color-gnome-text-secondary: #c0bfbc;
+  --color-gnome-text-muted: #9a9996;
+
+  /* Акцентные цвета */
+  --color-gnome-blue: #3584e4;
+  --color-gnome-green: #33d17a;
+  --color-gnome-orange: #ff7800;
+  --color-gnome-red: #e01b24;
+  --color-gnome-yellow: #f6d32d;
+  --color-gnome-purple: #9141ac;
+  --color-gnome-brown: #986a44;
+
+  /* Лёгкие цвета */
+
+  --color-gnome-blue-light: #62a0ea;
+  --color-gnome-green-light: #57e389;
+  --color-gnome-orange-light: #ffa348;
+  --color-gnome-red-light: #ed333b;
+  --color-gnome-yellow-light: #f8e45c;
+  --color-gnome-purple-light: #c061cb;
+  --color-gnome-brown-light: #b5835a;
+
+
+  /* Hover-варианты */
+  --color-gnome-blue-hover: #1c71d8;
+  --color-gnome-green-hover: #2ec27e;
+  --color-gnome-orange-hover: #e66100;
+  --color-gnome-red-hover: #c01c28;
+  --color-gnome-yellow-hover: #f5c211;
+  --color-gnome-purple-hover: #813d9c;
+  --color-gnome-brown-hover: #865e3c;
+}
+
+/* Базовые стили для всего сайта */
+body {
+  font-feature-settings: "kern" 1, "tnum" 1;
+  font-synthesis: none;
+}
