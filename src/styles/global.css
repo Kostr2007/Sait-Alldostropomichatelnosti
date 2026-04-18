@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+/* === Adwaita Sans - основной === */
+
+@font-face {
+  font-family: "Adwaita Sans";
+  src: url("/fonts/AdwaitaSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* === JetBrainsMono NF - код, терминал-подобные элементы! === */
+@font-face {
+  font-family: "JetBrainsMono NF";
+  src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono NF";
+  src: url("/fonts/JetBrainsMonoNerdFont-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 /* === GNOME / Adwaita Theme === */
 @theme {
   /* Основные цвета */
