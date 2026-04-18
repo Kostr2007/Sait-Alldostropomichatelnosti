@@ -67,7 +67,9 @@ git push
 ## Задачи на ближайшее время 🧑‍💻🐈
 
 - [x] Изучать Tailwindcss и адаптировать дизайн!
-- [ ] Добавить шрифты в проект Adwaita Sans и JetBrains Mono!
+- [x] Добавить шрифты в проект Adwaita Sans и JetBrains Mono!
+- [ ] Написать код для content.config.ts, и в pages/attractions/ index и [slug].astro также набросать хоть базовый код!
+- [ ] Не перегружаться!
 
 ## Стркуктура проекта 😼🌳
 
