@@ -9,19 +9,19 @@ import Layout from '../layouts/Layout.astro';
 	<!-- Вступительный -->
 
   <section class="bg-gnome-bg text-gnome-text py-12 px-4 rounded-3xl mx-8 my-8 text-center"> 
-  <h1 class="text-4xl font-bold mb-4">
+  <h1 class="text-5xl font-bold mb-4 tracking-tight">
     Достопримечательности<br>Набережных Челнов
   </h1>
-  <p class="text-lg mb-4">
+  <p class="text-xl mb-8 max-w-md mx-auto text-gnome-text-secondary">
   Удобный путеводитель по самым инетресным местам города!
   </p>
 
-  <div class="flex justify-center gap-4">
-  <a href="/attractions" class="bg-gnome-blue hover:bg-gnome-blue-hover px-6 py-2 rounded-lg font-medium transition-colors">
+  <div class="flex flex-col sm:flex-row justify-center gap-4">
+  <a href="/attractions" class="bg-gnome-blue hover:bg-gnome-blue-hover px-6 py-2 rounded-2xl font-medium transition-all active:scale-95 shadow-inner">
       Смотреть все достопримечательности
   </a>
 
-  <a href="/map" class="bg-gnome-green hover:bg-gnome-green-hover px-6 py-2 rounded-lg font-medium transition-colors">
+  <a href="/map" class="bg-gnome-green hover:bg-gnome-green-hover px-6 py-2 rounded-2xl font-medium transition-all active:scale-95 shadow-inner">
       Смотреть карту
   </a>
   </div>
@@ -43,7 +43,7 @@ import Layout from '../layouts/Layout.astro';
       Смотреть все достопримечательности
   </a>
 
-  <div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8">
     <!-- Здесь потом будут динамические карточки из Content Collections -->
     <!-- пока оставляем твой компонент как заглушку -->
     <!-- Можно будет заменить на реальные карточки -->
