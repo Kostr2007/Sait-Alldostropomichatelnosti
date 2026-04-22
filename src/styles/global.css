@@ -67,10 +67,24 @@
   --color-gnome-yellow-hover: #f5c211;
   --color-gnome-purple-hover: #813d9c;
   --color-gnome-brown-hover: #865e3c;
+
+  --font-sans: "Adwaita Sans", ui-sans-serif, system-ui;
+  --font-mono: "JetBrainsMono NF", ui-monospace, SFMono-Regular;
 }
 
-/* Базовые стили для всего сайта */
-body {
-  font-feature-settings: "kern" 1, "tnum" 1;
-  font-synthesis: none;
+@layer base {
+  body {
+    @apply bg-gnome-bg text-gnome-text font-sans antialiased;
+    /* Убираем лишние отступы */
+    margin: 0;
+    min-height: 100vh;
+    font-feature-settings: "kern" 1, "tnum" 1;
+    font-synthesis: none;
+
+  }
+
+  /* JetBrains для кода по умолчанию */
+  code, pre {
+    @apply font-mono;
+  }
 }
