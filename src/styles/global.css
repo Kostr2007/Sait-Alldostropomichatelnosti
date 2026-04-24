@@ -30,7 +30,7 @@
 /* === GNOME / Adwaita Theme === */
 @theme {
   /* Основные цвета */
-  --color-gnome-dark: #241f31;
+  --color-gnome-dark: #1f1b29;
   --color-gnome-bg: #241f31;
   --color-gnome-surface: #3d3846;
   --color-gnome-overlay: #2c2836;
@@ -70,6 +70,14 @@
 
   --font-sans: "Adwaita Sans", ui-sans-serif, system-ui;
   --font-mono: "JetBrainsMono NF", ui-monospace, SFMono-Regular;
+
+  --radius-card: 1.5rem;         /* rounded-2xl */
+  --radius-button: 1rem;         /* rounded-xl */
+  --spacing-card-padding: 2rem;  /* p-8 */
+
+  /* Эффекты Libadwaita */
+  --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
+  --gnome-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 @layer base {
@@ -86,5 +94,22 @@
   /* JetBrains для кода по умолчанию */
   code, pre {
     @apply font-mono;
+  }
+}
+
+@layer components {
+  /* Создаем переиспользуемый класс для карточек */
+  .adwaita-card {
+    @apply bg-gnome-surface/50 shadow-xl;
+    border: var(--gnome-border);
+    border-radius: var(--radius-card);
+    padding: var(--spacing-card-padding);
+  }
+
+  .adwaita-button {
+    @apply transition-all active:scale-95 font-medium shadow-inner;
+    border: var(--gnome-border);
+    border-radius: var(--radius-button);
+    padding: 0.5rem 1.5rem;
   }
 }

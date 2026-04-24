@@ -8,8 +8,8 @@ import Layout from '../layouts/Layout.astro';
 <Layout>
 	<!-- Вступительный -->
   <main class="max-w-5xl mx-auto py-8 px-4 space-y-8">
-  <section class="bg-gnome-surface text-gnome-text py-12 px-4 rounded-3xl mx-8 my-8 text-center"> 
-  <h1 class="text-5xl font-bold mb-4 tracking-tight">
+  <section class="adwaita-card text-center p-12">
+  <h1 class="text-5xl font-bold tracking-tight mb-4">
     Достопримечательности<br>Набережных Челнов
   </h1>
   <p class="text-xl mb-8 max-w-md mx-auto text-gnome-text-secondary">
@@ -17,29 +17,29 @@ import Layout from '../layouts/Layout.astro';
   </p>
 
   <div class="flex flex-col sm:flex-row justify-center gap-4">
-  <a href="/attractions" class="bg-gnome-blue hover:bg-gnome-blue-hover px-6 py-2 rounded-2xl font-medium transition-all active:scale-95 shadow-inner">
+  <a href="/attractions" class="adwaita-button bg-gnome-blue hover:bg-gnome-blue-hover">
       Смотреть все достопримечательности
   </a>
 
-  <a href="/map" class="bg-gnome-green hover:bg-gnome-green-hover px-6 py-2 rounded-2xl font-medium transition-all active:scale-95 shadow-inner">
+  <a href="/map" class="adwaita-button bg-gnome-green hover:bg-gnome-green-hover">
       Смотреть карту
   </a>
   </div>
   </section>
   
-  <section class="bg-gnome-surface/50 text-gnome-text mx-8 my-8 py-4 px-4 rounded-lg">
-  <h2>
+  <section class="adwaita-card">
+  <h2 class="text-2xl font-semibold mb-4">
     Добро пожаловать!
   </h2>
-  <p>
+  <p class="text-gnome-text-secondary mb-6 leading-relaxed">
     Этот сайт создан, чтобы пользователям было удобно познакомиться Набережными Челнами и узнать о самых интересных местах города. На сайте вы найдете информацию о достопримечательностях, музеях, парках и других интересных местах, которые стоит посетить в Набережных Челнах. Мы надеемся, что этот сайт поможет вам открыть для себя все удивительные места, которые предлагает наш город!
     Сделано с любовью на NixOS и Astro!
   </p>
 
-  <h2>
+  <h2 class="text-2xl font-semibold mb-4">
     Популярные места
   </h2>
-  <a href="/attractions">
+  <a href="/attractions" class="adwaita-button bg-gnome-blue hover:bg-gnome-blue-hover inline-block mb-6">
       Смотреть все достопримечательности
   </a>
 
@@ -49,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- Можно будет заменить на реальные карточки -->
   </div>
 
-  <p>
+  <p class="text-gnome-text-secondary leading-relaxed">
     Скороо здесь появятся карточки популярных достопримечательностей!
   </p>
   </section>
