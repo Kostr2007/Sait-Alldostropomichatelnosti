@@ -1,6 +1,10 @@
 @import "tailwindcss";
+@import "./typography.css";
+@import 'tailwind-scrollbar-hide/v4';
 
 /* === Adwaita Sans - основной === */
+
+/* ==== Шрифты ==== */
 
 @font-face {
   font-family: "Adwaita Sans";
@@ -68,8 +72,12 @@
   --color-gnome-purple-hover: #813d9c;
   --color-gnome-brown-hover: #865e3c;
 
+  /* Шрифты */
+
   --font-sans: "Adwaita Sans", ui-sans-serif, system-ui;
   --font-mono: "JetBrainsMono NF", ui-monospace, SFMono-Regular;
+
+  /* Размеры и отступы */
 
   --radius-card: 1.5rem;         /* rounded-2xl */
   --radius-button: 1rem;         /* rounded-xl */
@@ -78,6 +86,34 @@
   /* Эффекты Libadwaita */
   --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
   --gnome-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  /* градные цвета для границ */
+
+  --border: rgba(255, 255, 255, 0.05);
+}
+
+/* Глобальный сброс границ — хорошая практика из Bearnie */
+* {
+  border-color: var(--border);
+}
+
+/* Оставляем отличный кастомный скроллбар */
+.scrollbar-overlay {
+  scrollbar-width: none;
+}
+.scrollbar-overlay::-webkit-scrollbar {
+  width: 0;
+}
+.scrollbar-overlay:hover {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.scrollbar-overlay:hover::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-overlay:hover::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
 }
 
 @layer base {
