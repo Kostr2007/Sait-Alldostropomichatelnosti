@@ -1,13 +1,13 @@
 /* Typography - Adapted from Adam Wathan's approach */
 
 .prose {
-  --prose-color: var(--muted-foreground);
-  --prose-heading-color: var(--foreground);
-  --prose-strong-color: var(--foreground);
-  --prose-link-color: var(--foreground);
-  --prose-code-color: var(--foreground);
-  --prose-marker-color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
-  --prose-link-underline-color: var(--primary);
+  --prose-color: var(--color-gnome-text-secondary);
+  --prose-heading-color: var(--color-gnome-text);
+  --prose-strong-color: var(--color-gnome-text);
+  --prose-link-color: var(--color-gnome-blue-light);
+  --prose-code-color: var(--color-gnome-bg);
+  --prose-marker-color: color-mix(in oklab, var(--color-gnome-dark) 50%, transparent);
+  --prose-link-underline-color: var(--color-gnome-blue);
   --prose-th-borders: var(--border);
   --prose-td-borders: color-mix(in oklab, var(--border) 75%, transparent);
   --prose-hr-color: var(--border);
