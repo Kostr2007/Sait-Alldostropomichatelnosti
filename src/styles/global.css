@@ -79,9 +79,9 @@
 
   /* Размеры и отступы */
 
-  --radius-card: 1.5rem;         /* rounded-2xl */
-  --radius-button: 1rem;         /* rounded-xl */
-  --spacing-card-padding: 2rem;  /* p-8 */
+  --radius-card: 2rem;         /* rounded-3xl */
+  --radius-button: 1.5rem;         /* rounded-2xl */
+  --spacing-card-padding: 3rem;  /* p-8 */
 
   /* Эффекты Libadwaita */
   --gnome-border: 1px solid rgba(255, 255, 255, 0.05);

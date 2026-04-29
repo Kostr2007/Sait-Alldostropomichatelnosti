@@ -12,57 +12,63 @@ import Layout from '../layouts/Layout.astro';
     <!-- Вступительный блок -->
 
   <section class="text-center pt-8 pb-12">
-  <h1 class="text-6xl md:text-7xl font-bold tracking-tighter text-gnome-text leading-none mb-6">
+  <h1 class="text-3xl md:text-7xl font-bold tracking-tighter text-gnome-text leading-none mb-6">
     Достопримечательности<br>Набережных Челнов
   </h1>
-  <p class="text-xl mb-8 max-w-md mx-auto text-gnome-text-secondary leading-tight">
+  <p class="text-xl md:text-2xl text-gnome-text-secondary max-w-2xl mx-auto leading-tight">
   Удобный путеводитель по самым инетресным местам города!
   </p>
 
-  <div class="flex flex-col sm:flex-row justify-center gap-4">
-  <a href="/attractions" class="adwaita-button bg-gnome-blue hover:bg-gnome-blue-hover">
+  <div class="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+  <a href="/attractions" class="adwaita-button bg-gnome-blue hover:bg-gnome-blue-hover text-lg px-10 py-4">
       Смотреть все достопримечательности
   </a>
 
-  <a href="/map" class="adwaita-button bg-gnome-green hover:bg-gnome-green-hover">
+  <a href="/map" class="adwaita-button bg-gnome-green hover:bg-gnome-green-hover text-lg px-10 py-4">
       Смотреть карту
   </a>
   </div>
   </section>
-  
-  <section class="adwaita-card">
-  <h2 class="text-2xl font-semibold mb-4">
-    Добро пожаловать!
-  </h2>
-  <p class="text-gnome-text-secondary mb-6 leading-relaxed">
-    Этот сайт создан, чтобы пользователям было удобно познакомиться Набережными Челнами и узнать о самых интересных местах города. На сайте вы найдете информацию о достопримечательностях, музеях, парках и других интересных местах, которые стоит посетить в Набережных Челнах. Мы надеемся, что этот сайт поможет вам открыть для себя все удивительные места, которые предлагает наш город!
-    Сделано с любовью на NixOS и Astro!
-  </p>
 
-  <h2 class="text-2xl font-semibold mb-4">
-    Популярные места
-  </h2>
-  <a href="/attractions" class="adwaita-button bg-gnome-blue hover:bg-gnome-blue-hover inline-block mb-6">
-      Смотреть все достопримечательности
-  </a>
+  <!-- Блок с популярными местами -->
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-8">
-    <!-- Здесь потом будут динамические карточки из Content Collections -->
-    <!-- пока оставляем твой компонент как заглушку -->
-    <!-- Можно будет заменить на реальные карточки -->
-  </div>
-
-  <p class="text-gnome-text-secondary leading-relaxed">
-    Скороо здесь появятся карточки популярных достопримечательностей!
-  </p>
+  <section class="adwaita-card p-10 md:p-14">
+    <div class="max-w-3xl">
+    <h2 class="text-3xl font-semibold mb-6">
+      Добро пожаловать!
+    </h2>
+      <div class="prose prose-invert max-w-none text-lg leading-relaxed">
+      <p>
+        Этот сайт создан, чтобы пользователям было удобно познакомиться Набережными Челнами и узнать о самых интересных местах города. На сайте вы найдете информацию о достопримечательностях, музеях, парках и других интересных местах, которые стоит посетить в Набережных Челнах. Мы надеемся, что этот сайт поможет вам открыть для себя все удивительные места, которые предлагает наш город!
+      </p>
+      <p>
+        Сделано с душой на <strong>NixOS + Astro</strong>.
+      </p>
+      </div>
+    </div>
   </section>
-  </main>
-  <footer class="bg-gnome-dark text-gnome-text text-center p-4">
-    <p>© 2026 Достопримечательности Набережных Челнов</p>
-    <p>
-        Сделано на Astro • Tailwind • React
-    </p>
-  </footer>
 
+  <!-- Популярные места -->
+  <section class="space-y-8">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl md:text-3xl font-semibold">Популярные места</h2>
+        <a href="/attractions" class="text-gnome-blue-light hover:text-gnome-blue font-medium flex items-center gap-2">
+          Все достопримечательности →
+        </a>
+      </div>
+
+      <!-- Здесь будет сетка карточек -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Карточки достопримечательностей — делай их тоже очень "adwaita": 
+             большая карточка, крупное фото с border-radius ~1.5rem, 
+             заголовок крупнее, меньше текста снизу -->
+      </div>
+    </section>
+
+  </main>
+  <footer class="bg-gnome-dark mt-24 border-t border-white/5 pt-8 pb-12 text-center text-gnome-text-muted text-sm">
+    <p>© 2026 Достопримечательности Набережных Челнов</p>
+    <p class="mt-1">Сделано на Astro • Tailwind • с любовью к GNOME</p>
+  </footer>
 
 </Layout>
