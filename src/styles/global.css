@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "./typography.css";
-@import 'tailwind-scrollbar-hide/v4';
+@import "tailwind-scrollbar-hide/v4";
 
 /* === Adwaita Sans - основной === */
 
@@ -13,7 +13,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 /* === JetBrainsMono NF - код, терминал-подобные элементы! === */
 @font-face {
@@ -62,7 +61,6 @@
   --color-gnome-purple-light: #c061cb;
   --color-gnome-brown-light: #b5835a;
 
-
   /* Hover-варианты */
   --color-gnome-blue-hover: #1c71d8;
   --color-gnome-green-hover: #2ec27e;
@@ -79,9 +77,9 @@
 
   /* Размеры и отступы */
 
-  --radius-card: 2rem;         /* rounded-3xl */
-  --radius-button: 1.5rem;         /* rounded-2xl */
-  --spacing-card-padding: 3rem;  /* p-8 */
+  --radius-card: 2rem; /* rounded-3xl */
+  --radius-button: 1.5rem; /* rounded-2xl */
+  --spacing-card-padding: 3rem; /* p-8 */
 
   /* Эффекты Libadwaita */
   --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
@@ -122,13 +120,15 @@
     /* Убираем лишние отступы */
     margin: 0;
     min-height: 100vh;
-    font-feature-settings: "kern" 1, "tnum" 1;
+    font-feature-settings:
+      "kern" 1,
+      "tnum" 1;
     font-synthesis: none;
-
   }
 
   /* JetBrains для кода по умолчанию */
-  code, pre {
+  code,
+  pre {
     @apply font-mono;
   }
 }
