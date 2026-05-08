@@ -79,6 +79,7 @@
 
   --radius-card: 2rem; /* rounded-3xl */
   --radius-button: 1.5rem; /* rounded-2xl */
+  --radius-button-hover: 1rem; /* rounded-[1.75rem] */
   --spacing-card-padding: 3rem; /* p-8 */
 
   /* Эффекты Libadwaita */
@@ -87,12 +88,23 @@
 
   /* градные цвета для границ */
 
-  --border: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 /* Глобальный сброс границ — хорошая практика из Bearnie */
 * {
   border-color: var(--border);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gnome-blue);
+  outline-offset: 3px;
 }
 
 /* Оставляем отличный кастомный скроллбар */
@@ -118,6 +130,7 @@
   body {
     @apply bg-gnome-bg text-gnome-text font-sans antialiased;
     /* Убираем лишние отступы */
+    position: relative;
     margin: 0;
     min-height: 100vh;
     font-feature-settings:
@@ -136,16 +149,43 @@
 @layer components {
   /* Создаем переиспользуемый класс для карточек */
   .adwaita-card {
-    @apply bg-gnome-surface/50 shadow-xl;
+    @apply bg-gnome-surface/70 backdrop-blur-xl shadow-xl transition-transform duration-200 ease-linear;
     border: var(--gnome-border);
     border-radius: var(--radius-card);
     padding: var(--spacing-card-padding);
+    box-shadow: var(--gnome-shadow);
+    overflow: hidden;
   }
 
+  .adwaita-card:hover {
+    transform: translateY(-2px);
+  }
   .adwaita-button {
-    @apply transition-all active:scale-95 font-medium shadow-inner;
+    @apply transition-all active:scale-95 font-medium shadow-inner cursor-pointer duration-200 ease-linear;
     border: var(--gnome-border);
     border-radius: var(--radius-button);
     padding: 0.5rem 1.5rem;
+  }
+
+  .adwaita-button:hover {
+    border-radius: var(--radius-button-hover);
+  }
+
+  .adwaita-button:focus-visible {
+    outline: 2px solid var(--color-gnome-blue);
+    outline-offset: 3px;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .bento-grid .card-featured {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
   }
 }
