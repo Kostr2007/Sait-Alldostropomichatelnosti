@@ -59,6 +59,8 @@ git push
 
 В этом сайте будут использоваться только чётные числа (например, `px-6`, `px-2` ✔️, а не `px-3` ❌). Цветовая палитра взята из [GNOME HIG](https://developer.gnome.org/hig/reference/palette.html).
 
+При возможности писать всё в global.css чтобы если нужно будет менять... то не придётся перелапачивать весь сайт! 🖌️✨
+
 ### Основные цвета проекта
 
 - #241f31 - **Основной фон** ☁️
@@ -70,52 +72,12 @@ git push
 - [x] Изучать Tailwindcss и адаптировать дизайн!
 - [x] Добавить шрифты в проект Adwaita Sans и JetBrains Mono!
 - [x] Найти ревернс сайтов как вдохновение.
-- [ ] Изучить figma и создать дизайн сайта!
-- [ ] Реверенс [сайта!](https://github.com/adrianhajdin/gsap_cocktails)
+- [ ] Сделать кнопки показывающи за счёт закругление... что сайт переходит на другую страницу или активирует что то в этой страницу! И добавить анимацию при нажатии!
+- [ ] Сделать footer в отдельном astro чтобы было везде одинаковый footer и легко было менять его! И добавить в него ссылки на соц сети и контакты!
 
-## Стркуктура проекта 😼🌳
+## Референсы для вдохновения 🧑‍🎨🐈
 
-Если забуду **Я** или **ТЫ** где лежат файлы, то вот тебе шпаргалка по структуре проекта:
-
-```
-.
-├── public
-│   ├── fonts
-│   │   ├── AdwaitaSans-Regular.ttf
-│   │   ├── JetBrainsMonoNerdFont-Bold.ttf
-│   │   └── JetBrainsMonoNerdFont-Regular.ttf
-│   ├── favicon.ico
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   ├── astro.svg
-│   │   └── background.svg
-│   ├── components
-│   │   ├── Header.astro
-│   │   ├── Map.tsx
-│   │   └── Welcome.astro
-│   ├── content
-│   │   └── attractions
-│   │       └── _template.md
-│   ├── layouts
-│   │   └── Layout.astro
-│   ├── lib
-│   ├── pages
-│   │   ├── attractions
-│   │   │   ├── index.astro
-│   │   │   └── [slug].astro
-│   │   ├── index.astro
-│   │   └── map.astro
-│   ├── styles
-│   │   ├── global.css
-│   │   └── typography.css
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-├── package-lock.json
-├── README.md
-└── tsconfig.json
-```
+- [Первый ревернс](https://github.com/adrianhajdin/gsap_cocktails)
 
 # 🥽😺🛠️ Обновления
 
@@ -129,6 +91,8 @@ git push
 ### Обновления 0.20.23 -11.5.26-
 
 - Был наконец написан Header.astro так что теперь если надо будет добавить header это указывается простым <header>! И добавлено в index.astro! Теперь сайт будет использовать этот компонент для отображения заголовков, что обеспечит единый стиль и удобство использования! 🏁✨
+- В global.css было отдельно выводен themes! 🌑🌞
+- Был убран структура проекта из за не надобности! 🧹✨
 
 ### Обновление 0.19.22 -10.5.26- === Чистка ===
 
