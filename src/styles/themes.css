@@ -45,10 +45,25 @@
 
   /* Размеры и отступы */
 
-  --radius-card: 2rem; /* rounded-3xl */
-  --radius-button: 1.5rem; /* rounded-2xl */
-  --radius-button-hover: 1rem;
-  --spacing-card-padding: 3rem; /* p-8 */
+  /* Основные "Adwaita-style" радиусы */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+
+  --radius-card: var(--radius-2xl);
+  --radius-card-featured: var(--radius-3xl); /* для главной карточки */
+  --radius-button: var(--radius-xl);
+  --radius-button-hover: var(--radius-2xl); /* для hover-эффекта */
+  --radius-button-pill: var(--radius-full); /* если будут pill-кнопки */
+
+  /* Для hover-эффектов (твои асимметричные закругления) */
+  --radius-button-hover-in: var(--radius-sm);
+  --radius-button-hover-out: var(--radius-2xl);
 
   /* Эффекты Libadwaita */
   --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
