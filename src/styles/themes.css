@@ -62,8 +62,12 @@
   --radius-button-pill: var(--radius-full); /* если будут pill-кнопки */
 
   /* Для hover-эффектов (твои асимметричные закругления) */
-  --radius-button-hover-in: var(--radius-sm);
-  --radius-button-hover-out: var(--radius-2xl);
+  --radius-button-hover-in: var(
+    --radius-sm
+  ); /* Слабое скругление как бы начало... in */
+  --radius-button-hover-out: var(
+    --radius-2xl
+  ); /* Сильное скругление как бы выход... как стрелка... out! */
 
   /* Эффекты Libadwaita */
   --gnome-border: 1px solid rgba(255, 255, 255, 0.05);

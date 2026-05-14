@@ -115,6 +115,8 @@
     border-radius: var(--radius-button-hover);
   }
 
+  /* Кнопки показывающий переход на следующию страницу или выход из неё */
+
   .adwaita-button-in:hover {
     border-top-left-radius: var(--radius-button-hover-in);
     border-bottom-left-radius: var(--radius-button-hover-in);
@@ -126,6 +128,15 @@
     border-top-left-radius: var(--radius-button-hover-out);
     border-bottom-left-radius: var(--radius-button-hover-out);
     border-top-right-radius: var(--radius-button-hover-in);
+    border-bottom-right-radius: var(--radius-button-hover-in);
+  }
+
+  /* Кнопки которые показывают что ссылаются на внешнию ссылку, например youtube */
+
+  .adwaita-button-external:hover {
+    border-top-left-radius: var(--radius-button-hover-out);
+    border-bottom-left-radius: var(--radius-button-hover-in);
+    border-top-right-radius: var(--radius-button-hover-out);
     border-bottom-right-radius: var(--radius-button-hover-in);
   }
 

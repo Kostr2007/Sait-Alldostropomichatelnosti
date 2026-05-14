@@ -1,10 +1,18 @@
 # 🌆 Достопримечательности Набережных Челнов
 
+![Version](https://img.shields.io/badge/version-0.22.25-blue?style=for-the-badge)
+![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
+![NixOS](https://img.shields.io/badge/NixOS-24.11-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
+![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
+
+![Тип](https://img.shields.io/badge/Тип-Путеводитель-33d17a?style=for-the-badge)
+![Язык](https://img.shields.io/badge/Язык-Russian-ff7800?style=for-the-badge)
+
 Современный сайт-путеводитель по всем интересным местам Набережных Челнов.
 
 Полная переделка старых версий. На этот раз - **по уму**, с чистой архитектурой, хорошим UX и современным стеком.
 
-![Hero](public/favicon.ico) <!-- потом заменишь на реальное фото -->
+![Hero](src/assets/icons/astro.svg) <!-- потом заменишь на реальное фото -->
 
 ## ✨ Особенности
 
