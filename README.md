@@ -1,6 +1,6 @@
 # 🌆 Достопримечательности Набережных Челнов
 
-![Version](https://img.shields.io/badge/version-0.22.25-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.23.26-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
 ![NixOS](https://img.shields.io/badge/NixOS-24.11-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
