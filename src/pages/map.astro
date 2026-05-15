@@ -1,70 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Mapping from '../components/Map.tsx';
 ---
 
 <Layout>
   <Header />
-	<!-- Вступительный -->
-  <main class="max-w-7xl mx-auto py-12 px-12 space-y-16">
 
-    <!-- Вступительный блок -->
-
-  <section class="text-left pt-8 pb-12">
-  <h1 class="text-3xl md:text-7xl font-bold tracking-tighter text-gnome-text leading-none mb-6">
-    Карта достопримечательности<br>
-  </h1>
-  <p class="text-xl md:text-2xl text-gnome-text-secondary mx-auto leading-tight">
-  Удобный путеводитель по самым инетресным местам города!
-  </p>
-
-  <div class="flex flex-col sm:flex-row justify-left gap-4 mt-12">
-  <a href="/" class="adwaita-button adwaita-button-out bg-gnome-orange hover:bg-gnome-orange-hover text-lg px-10 py-4">
-      На главную
-  </a>
-  </div>
-  </section>
-
-  <!-- Блок с популярными местами -->
-
-  <section class="adwaita-card p-10 md:p-14">
-    <div class="max-w-3xl">
-    <h2 class="text-3xl font-semibold mb-6">
-      Тестовая карта достопримечательностей
-    </h2>
-      <div class="prose prose-invert max-w-none text-lg leading-relaxed">
-      <p>
-        Этот сайт создан, чтобы пользователям было удобно познакомиться Набережными Челнами и узнать о самых интересных местах города. На сайте вы найдете информацию о достопримечательностях, музеях, парках и других интересных местах, которые стоит посетить в Набережных Челнах. Мы надеемся, что этот сайт поможет вам открыть для себя все удивительные места, которые предлагает наш город!
+  <main class="max-w-7xl mx-auto px-12 py-12 space-y-16">
+    
+    <!-- Заголовок страницы -->
+    <section class="text-center">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-gnome-text leading-none mb-6">
+        Карта достопримечательностей
+      </h1>
+      <p class="text-xl md:text-2xl text-gnome-text-secondary max-w-2xl mx-auto">
+        Интерактивная карта Набережных Челнов с отметками всех интересных мест
       </p>
-      <p>
-        Сделано с душой на <strong>NixOS + Astro</strong>.
-      </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Популярные места -->
-  <section class="space-y-8">
-      <div class="flex items-end justify-between">
-        <h2 class="text-2xl md:text-3xl font-semibold">Популярные места</h2>
-        <a href="/attractions" class="text-gnome-blue-light hover:text-gnome-blue font-medium flex items-center gap-2">
-          Все достопримечательности →
-        </a>
-      </div>
-
-      <!-- Здесь будет сетка карточек -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Карточки достопримечательностей — делай их тоже очень "adwaita": 
-             большая карточка, крупное фото с border-radius ~1.5rem, 
-             заголовок крупнее, меньше текста снизу -->
+      <div class="flex justify-center mt-12">
+        <a href="/" class="adwaita-button adwaita-button-out bg-gnome-orange hover:bg-gnome-orange-hover text-lg px-24 py-4">
+          На главную
+        </a>    
       </div>
     </section>
 
+    <!-- Сама карта -->
+    <section class="adwaita-card p-4 md:p-6">
+      <Mapping
+        client:only="react" 
+        class="w-full h-162.5 rounded-2xl overflow-hidden" <!-- Ошибка тут... проблема в том что пропса в Map.tsx нету и выдаёт ошибку! Разберусь потом с этим!-->
+        attractions={[] as any} 
+      />
+    </section>
+
+    <!-- Информация под картой -->
+    <section class="adwaita-card p-8 md:p-10 max-w-7xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-6">Как пользоваться картой?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div> <!-- Перенести всё это в global.css под названием иконки!-->
+          <div class="w-20 h-20 bg-gnome-blue-light rounded-3xl flex items-center justify-center text-4xl mb-5 border border-white/5">🖱️</div> 
+          <h3 class="font-medium mb-2">Перемещение</h3>
+          <p class="text-gnome-text-secondary">Зажми левую кнопку мыши и двигай карту</p>
+        </div>
+        <div>
+          <div class="w-20 h-20 bg-gnome-green-light rounded-3xl flex items-center justify-center text-4xl mb-5">🔍</div>
+          <h3 class="font-medium mb-2">Приближение</h3>
+          <p class="text-gnome-text-secondary">Колёсико мыши или кнопки + / -</p>
+        </div>
+        <div>
+          <div class="w-20 h-20 bg-gnome-orange-light rounded-3xl flex items-center justify-center text-4xl mb-5">📍</div>
+          <h3 class="font-medium mb-2">Метки</h3>
+          <p class="text-gnome-text-secondary">Кликни на метку, чтобы увидеть информацию</p>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer class="bg-gnome-dark mt-24 border-t border-white/5 pt-8 pb-12 text-center text-gnome-text-muted text-sm">
     <p>© 2026 Достопримечательности Набережных Челнов</p>
-    <p class="mt-1">Сделано на Astro • Tailwind • с любовью к GNOME</p>
+    <p class="mt-1">Сделано на Astro • Tailwind • Leaflet • GNOME Style</p>
   </footer>
-
 </Layout>
-
