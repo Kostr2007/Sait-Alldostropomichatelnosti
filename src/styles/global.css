@@ -100,9 +100,6 @@
     overflow: hidden;
   }
 
-  .adwaita-card:hover {
-    transform: translateY(-2px);
-  }
   /* Кнопка */
   .adwaita-button {
     @apply transition-all active:scale-95 hover:scale-102 font-medium shadow-inner cursor-pointer duration-200 ease-in-out;
@@ -144,6 +141,17 @@
     outline: 2px solid var(--color-gnome-blue);
     outline-offset: 3px;
   }
+
+  /* Фон для предметов, эмодзи и так далее. */
+  .background-item {
+    @apply flex items-center justify-center text-4xl transition-all duration-200;
+    border: var(--gnome-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--gnome-shadow);
+    width: 5rem;
+    height: 5rem;
+  }
+
   /* Сетка для карточек */
   .bento-grid {
     display: grid;

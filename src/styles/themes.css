@@ -60,6 +60,7 @@
   --radius-button: var(--radius-xl);
   --radius-button-hover: var(--radius-2xl); /* для hover-эффекта */
   --radius-button-pill: var(--radius-full); /* если будут pill-кнопки */
+  --radius-item: var(--radius-lg); /* для элементов внутри карточек, например, иконок или аватаров */
 
   /* Для hover-эффектов (твои асимметричные закругления) */
   --radius-button-hover-in: var(
