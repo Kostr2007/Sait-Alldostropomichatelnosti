@@ -1,13 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import Mapping from '../components/Map.tsx';
 ---
 
 <Layout>
   <Header />
 
-  <main class="max-w-7xl mx-auto px-12 py-12 space-y-16">
+  <main class="flex-1 max-w-7xl mx-auto px-12 py-12 space-y-16">
     
     <!-- Заголовок страницы -->
     <section class="text-center">
@@ -55,9 +56,5 @@ import Mapping from '../components/Map.tsx';
       </div>
     </section>
   </main>
-
-  <footer class="bg-gnome-dark mt-24 border-t border-white/5 pt-8 pb-12 text-center text-gnome-text-muted text-sm">
-    <p>© 2026 Достопримечательности Набережных Челнов</p>
-    <p class="mt-1">Сделано на Astro • Tailwind • Leaflet • GNOME Style</p>
-  </footer>
+  <Footer />
 </Layout>

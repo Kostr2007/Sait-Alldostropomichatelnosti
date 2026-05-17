@@ -76,6 +76,8 @@
     position: relative;
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-feature-settings:
       "kern" 1,
       "tnum" 1;

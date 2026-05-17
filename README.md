@@ -1,6 +1,6 @@
 # 🌆 Достопримечательности Набережных Челнов
 
-![Version](https://img.shields.io/badge/version-0.23.26-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.25.28-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
 ![NixOS](https://img.shields.io/badge/NixOS-24.11-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
@@ -90,14 +90,17 @@ git push
 - [x] Сделать footer в отдельном astro чтобы было везде одинаковый footer и легко было менять его! И добавить в него ссылки на соц сети и контакты!
 - [x] Вынести в README категорию обновления в другой .md файле и ссылаться на него! Чтобы лицо RADME было чище!
 - [x] Доделать map.astro. И добавить карту там.
-- [ ] Вынести footer в components.
+- [x] Вынести footer в components.
+- [ ] Исправить все ошибки в стилях, через f12.
 - [ ] Добавить три полоски для подержки мобильного меню!
 - [ ] Добавить функций добавление аккаунта.
 - [ ] Добавить градиентов и проработку теней, фона.
 
-## Референсы для вдохновения 🧑‍🎨🐈
+## Полезные сайты 🧑‍🎨🐈
 
-- [Первый ревернс](https://github.com/adrianhajdin/gsap_cocktails)
+- [Отдельные части компонентов. 🧱](https://stacksorted.com/buttons)
+- [Портфолио дизайнеров. 💼](https://www.portfoliogallery.dev/)
+- [Соверменые сайты! 🪩](https://web3inspiration.com/)
 
 # 🥽😺🛠️ Обновления
 
