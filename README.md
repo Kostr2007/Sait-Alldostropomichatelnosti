@@ -1,6 +1,6 @@
 # 🌆 Достопримечательности Набережных Челнов
 
-![Version](https://img.shields.io/badge/version-0.25.28-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.26.29-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
 ![NixOS](https://img.shields.io/badge/NixOS-24.11-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
@@ -91,7 +91,7 @@ git push
 - [x] Вынести в README категорию обновления в другой .md файле и ссылаться на него! Чтобы лицо RADME было чище!
 - [x] Доделать map.astro. И добавить карту там.
 - [x] Вынести footer в components.
-- [ ] Исправить все ошибки в стилях, через f12.
+- [ ] Почистить классы в `header.astro`.
 - [ ] Добавить три полоски для подержки мобильного меню!
 - [ ] Добавить функций добавление аккаунта.
 - [ ] Добавить градиентов и проработку теней, фона.

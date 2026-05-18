@@ -2,49 +2,143 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-gnome-bg/95 backdrop-blur-lg border-b border-white/5">
+<header
+  class="sticky top-0 z-50 bg-gnome-bg/95 backdrop-blur-lg border-b border-white/5"
+>
   <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-    
     <!-- Логотип -->
     <a href="/" class="flex items-center gap-3 group">
-      <div class="w-9 h-9 bg-gradient-to-br from-gnome-blue to-gnome-green rounded-2xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-110">
+      <div
+        class="w-9 h-9 bg-gradient-to-br from-gnome-blue to-gnome-green rounded-2xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105"
+      >
         Ч
       </div>
       <div>
-        <span class="text-2xl font-semibold text-gnome-text tracking-tight">Челны</span>
-        <span class="text-gnome-text-secondary text-sm block -mt-1">Достопримечательности</span>
+        <span class="text-2xl font-semibold text-gnome-text tracking-tight"
+          >Челны</span
+        >
+        <span class="text-gnome-text-secondary text-sm block -mt-1"
+          >Достопримечательности</span
+        >
       </div>
     </a>
 
     <!-- Навигация -->
-    <nav class="flex items-center gap-8 text-gnome-text-secondary">
-      <a href="/attractions" 
-         class="hover:text-gnome-text transition-colors font-medium ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}">
+    <nav class="hidden md:flex items-center gap-8 text-gnome-text-secondary">
+      <a
+        href="/attractions"
+        class="hover:text-gnome-text transition-colors font-medium ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}"
+      >
         Достопримечательности
       </a>
-      
-      <a href="/map" 
-         class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/map' ? 'text-gnome-text' : ''}">
+
+      <a
+        href="/map"
+        class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/map' ? 'text-gnome-text' : ''}"
+      >
         Карта
       </a>
-      
-      <a href="/routes" 
-         class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/routes' ? 'text-gnome-text' : ''}">
+
+      <a
+        href="/routes"
+        class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/routes' ? 'text-gnome-text' : ''}"
+      >
         Маршруты
       </a>
     </nav>
 
     <!-- Правая часть -->
-    <div class="flex items-center gap-4">
-      <a href="/about" 
-         class="adwaita-button text-sm px-5 py-2">
-        О проекте
-      </a>
-      
+    <div class="hidden md:flex items-center gap-4">
+      <a href="/about" class="adwaita-button text-sm px-5 py-2"> О проекте </a>
+
       <!-- Переключатель темы (пока заглушка) -->
-      <button class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-gnome-surface transition-colors">
+      <button
+        class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-gnome-surface transition-colors"
+      >
         🌙
       </button>
     </div>
+
+    <button
+      id="menu-toggle"
+      class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xs hover:bg-gnome-surface transition-colors z-50"
+      aria-label="Открыть меню"
+    >
+      <span
+        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-1"
+      ></span>
+      <span
+        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-2"
+      ></span>
+      <span
+        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-3"
+      ></span>
+    </button>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="md:hidden absolute top-full left-0 w-full bg-gnome-overlay/98 backdrop-blur-xl rounded-sm border-b border-white/5 px-6 py-6 shadow-2xl transition-all duration-300 ease-out opacity-0 pointer-events-none -translate-y-4"
+  >
+    <nav class="flex flex-col gap-4 text-gnome-text-secondary text-lg">
+      <a
+        href="/attractions"
+        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}`}
+      >
+        Достопримечательности
+      </a>
+      <a
+        href="/map"
+        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath === '/map' ? 'text-gnome-text' : ''}`}
+      >
+        Карта
+      </a>
+      <a
+        href="/routes"
+        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath === '/routes' ? 'text-gnome-text' : ''}`}
+      >
+        Маршруты
+      </a>
+      <hr class="border-white/5 my-2" />
+      <div class="flex items-center justify-between pt-2">
+        <a
+          href="/about"
+          class="adwaita-button text-sm px-5 py-2 text-center flex-1 mr-4 bg-gnome-surface"
+        >
+          О проекте
+        </a>
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-gnome-surface transition-colors"
+        >
+          🌙
+        </button>
+      </div>
+    </nav>
   </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('mobile-menu-active');
+      const line1 = menuToggle.querySelector('.line-1');
+      const line2 = menuToggle.querySelector('.line-2');
+      const line3 = menuToggle.querySelector('.line-3');
+
+      if (line1 && line2 && line3) {
+        line1.classList.toggle('rotate-45');
+        line1.classList.toggle('translate-y-2');
+        line2.classList.toggle('opacity-0');
+        line3.classList.toggle('-rotate-45');
+        line3.classList.toggle('-translate-y-2');
+      }
+
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('translate-y-0');
+      }
+    });
+  }
+</script>

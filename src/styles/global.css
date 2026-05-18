@@ -1,15 +1,15 @@
-@import "tailwindcss";
-@import "./typography.css";
-@import "tailwind-scrollbar-hide/v4";
-@import "./themes.css";
+@import 'tailwindcss';
+@import './typography.css';
+@import 'tailwind-scrollbar-hide/v4';
+@import './themes.css';
 
 /* === Adwaita Sans - основной === */
 
 /* ==== Шрифты ==== */
 
 @font-face {
-  font-family: "Adwaita Sans";
-  src: url("/fonts/AdwaitaSans-Regular.ttf") format("truetype");
+  font-family: 'Adwaita Sans';
+  src: url('/fonts/AdwaitaSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,16 +17,16 @@
 
 /* === JetBrainsMono NF - код, терминал-подобные элементы! === */
 @font-face {
-  font-family: "JetBrainsMono NF";
-  src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+  font-family: 'JetBrainsMono NF';
+  src: url('/fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "JetBrainsMono NF";
-  src: url("/fonts/JetBrainsMonoNerdFont-Bold.ttf") format("truetype");
+  font-family: 'JetBrainsMono NF';
+  src: url('/fonts/JetBrainsMonoNerdFont-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -79,8 +79,8 @@
     display: flex;
     flex-direction: column;
     font-feature-settings:
-      "kern" 1,
-      "tnum" 1;
+      'kern' 1,
+      'tnum' 1;
     font-synthesis: none;
   }
 
@@ -142,6 +142,13 @@
   .adwaita-button:focus-visible {
     outline: 2px solid var(--color-gnome-blue);
     outline-offset: 3px;
+  }
+
+  /* Управление плавным открытием мобильного меню */
+  .mobile-menu-active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
   }
 
   /* Фон для предметов, эмодзи и так далее. */
