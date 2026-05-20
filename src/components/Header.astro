@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname;
     <!-- Логотип -->
     <a href="/" class="flex items-center gap-3 group">
       <div
-        class="w-9 h-9 bg-gradient-to-br from-gnome-blue to-gnome-green rounded-2xl flex items-center justify-center text-white font-bold text-xl transition-transform group-hover:scale-105"
+        class="bg-gradient-to-br from-gnome-blue to-gnome-green circle-button"
       >
         Ч
       </div>
@@ -27,21 +27,21 @@ const currentPath = Astro.url.pathname;
     <nav class="hidden md:flex items-center gap-8 text-gnome-text-secondary">
       <a
         href="/attractions"
-        class="hover:text-gnome-text transition-colors font-medium ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}"
       >
         Достопримечательности
       </a>
 
       <a
         href="/map"
-        class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/map' ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath === '/map' ? 'text-gnome-text' : ''}"
       >
         Карта
       </a>
 
       <a
         href="/routes"
-        class="hover:text-gnome-text transition-colors font-medium ${currentPath === '/routes' ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath === '/routes' ? 'text-gnome-text' : ''}"
       >
         Маршруты
       </a>
@@ -52,9 +52,7 @@ const currentPath = Astro.url.pathname;
       <a href="/about" class="adwaita-button text-sm px-5 py-2"> О проекте </a>
 
       <!-- Переключатель темы (пока заглушка) -->
-      <button
-        class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-gnome-surface transition-colors"
-      >
+      <button class="hover:bg-gnome-surface circle-button transition-colors">
         🌙
       </button>
     </div>
@@ -64,22 +62,13 @@ const currentPath = Astro.url.pathname;
       class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xs hover:bg-gnome-surface transition-colors z-50"
       aria-label="Открыть меню"
     >
-      <span
-        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-1"
-      ></span>
-      <span
-        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-2"
-      ></span>
-      <span
-        class="w-6 h-0.5 bg-gnome-text transition-all duration-200 ease-in-out line-3"
-      ></span>
+      <span class="hamburger-line line-1"></span>
+      <span class="hamburger-line line-2"></span>
+      <span class="hamburger-line line-3"></span>
     </button>
   </div>
 
-  <div
-    id="mobile-menu"
-    class="md:hidden absolute top-full left-0 w-full bg-gnome-overlay/98 backdrop-blur-xl rounded-sm border-b border-white/5 px-6 py-6 shadow-2xl transition-all duration-300 ease-out opacity-0 pointer-events-none -translate-y-4"
-  >
+  <div id="mobile-menu" class="md:hidden mobile-menu-panel">
     <nav class="flex flex-col gap-4 text-gnome-text-secondary text-lg">
       <a
         href="/attractions"

@@ -9,51 +9,84 @@ import Mapping from '../components/Map.tsx';
   <Header />
 
   <main class="flex-1 max-w-7xl mx-auto px-4 md:px-12 py-12 space-y-16">
-    
     <!-- Заголовок страницы -->
     <section class="text-center">
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-gnome-text leading-none mb-6">
+      <h1
+        class="text-4xl md:text-6xl font-bold tracking-tighter text-gnome-text leading-none mb-6"
+      >
         Карта достопримечательностей
       </h1>
-      <p class="text-xl md:text-2xl text-gnome-text-secondary max-w-2xl mx-auto">
+      <p
+        class="text-xl md:text-2xl text-gnome-text-secondary max-w-2xl mx-auto"
+      >
         Интерактивная карта Набережных Челнов с отметками всех интересных мест
       </p>
       <div class="flex justify-center mt-12">
-        <a href="/" class="adwaita-button adwaita-button-out bg-gnome-orange hover:bg-gnome-orange-hover text-lg px-6 sm:px-24 py-4">
+        <a
+          href="/"
+          class="adwaita-button adwaita-button-out bg-gnome-orange hover:bg-gnome-orange-hover text-lg px-6 sm:px-24 py-4"
+        >
           На главную
-        </a>    
+        </a>
       </div>
     </section>
 
     <!-- Сама карта -->
     <section class="adwaita-card p-4 md:p-6">
       <Mapping
-        client:only="react" 
-        class="w-full h-162.5 rounded-2xl overflow-hidden" <!-- Ошибка тут... проблема в том что пропса в Map.tsx нету и выдаёт ошибку! Разберусь потом с этим!-->
-        attractions={[] as any} 
-      />
-    </section>
+        client:only="react"
+        class="w-full h-162.5 rounded-2xl overflow-hidden"
+        <!--
+        Ошибка
+        тут...
+        проблема
+        в
+        том
+        что
+        пропса
+        в
+        Map.tsx
+        нету
+        и
+        выдаёт
+        ошибку!
+        Разберусь
+        потом
+        с
+        этим!--
+      >
+        attractions={[] as any}
+        />
+      </Mapping>
 
-    <!-- Информация под картой -->
-    <section class="adwaita-card p-8 md:p-10 max-w-7xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-6">Как пользоваться картой?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-        <div> <!-- Перенести всё это в global.css под названием иконки!-->
-          <div class="w-20 h-20 bg-gnome-blue-light background-item mb-5">🖱️</div> 
-          <h3 class="font-medium mb-2">Перемещение</h3>
-          <p class="text-gnome-text-secondary">Зажми левую кнопку мыши и двигай карту</p>
+      <!-- Информация под картой -->
+      <section class="p-8 md:p-10 mt-6 max-w-7xl mx-auto text-center">
+        <h2 class="text-2xl font-semibold mb-6">Как пользоваться картой?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div>
+            <!-- Перенести всё это в global.css под названием иконки!-->
+            <div class="bg-gnome-blue-light background-item mb-6">🖱️</div>
+            <h3 class="font-medium mb-2">Перемещение</h3>
+            <p class="text-gnome-text-secondary">
+              Зажми левую кнопку мыши и двигай карту
+            </p>
+          </div>
+          <div>
+            <div class="bg-gnome-green-light background-item mb-6">🔍</div>
+            <h3 class="font-medium mb-2">Приближение</h3>
+            <p class="text-gnome-text-secondary">
+              Колёсико мыши или кнопки + / -
+            </p>
+          </div>
+          <div>
+            <div class="bg-gnome-orange-light background-item mb-6">📍</div>
+            <h3 class="font-medium mb-2">Метки</h3>
+            <p class="text-gnome-text-secondary">
+              Кликни на метку, чтобы увидеть информацию
+            </p>
+          </div>
         </div>
-        <div>
-          <div class="w-20 h-20 bg-gnome-green-light background-item mb-5">🔍</div>
-          <h3 class="font-medium mb-2">Приближение</h3>
-          <p class="text-gnome-text-secondary">Колёсико мыши или кнопки + / -</p>
-        </div>
-        <div>
-          <div class="w-20 h-20 bg-gnome-orange-light background-item mb-5">📍</div>
-          <h3 class="font-medium mb-2">Метки</h3>
-          <p class="text-gnome-text-secondary">Кликни на метку, чтобы увидеть информацию</p>
-        </div>
-      </div>
+      </section>
     </section>
   </main>
   <Footer />
