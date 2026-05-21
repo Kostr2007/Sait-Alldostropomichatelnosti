@@ -41,8 +41,8 @@
 
   /* Шрифты */
 
-  --font-sans: "Adwaita Sans", ui-sans-serif, system-ui;
-  --font-mono: "JetBrainsMono NF", ui-monospace, SFMono-Regular;
+  --font-sans: 'Adwaita Sans', ui-sans-serif, system-ui;
+  --font-mono: 'JetBrainsMono NF', ui-monospace, SFMono-Regular;
 
   /* Размеры и отступы */
 
@@ -61,7 +61,9 @@
   --radius-button: var(--radius-xl);
   --radius-button-hover: var(--radius-2xl); /* для hover-эффекта */
   --radius-button-pill: var(--radius-full); /* если будут pill-кнопки */
-  --radius-item: var(--radius-lg); /* для элементов внутри карточек, например, иконок или аватаров */
+  --radius-item: var(
+    --radius-lg
+  ); /* для элементов внутри карточек, например, иконок или аватаров */
 
   /* Для hover-эффектов (твои асимметричные закругления) */
   --radius-button-hover-in: var(
@@ -78,4 +80,14 @@
   /* градные цвета для границ */
 
   --border: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  --color-gnome-bg: #edf0f2;
+  --color-gnome-text: #241f31;
+  --color-gnome-surface: #ffffff;
+  --color-gnome-overlay: #f6f5f4;
+  --color-gnome-text-secondary: #5e5c64;
+  --border: rgba(0, 0, 0, 0.08);
+  --gnome-border: 1px solid rgba(0, 0, 0, 0.08);
 }
