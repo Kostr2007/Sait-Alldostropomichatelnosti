@@ -84,10 +84,11 @@
 
 .light {
   --color-gnome-bg: #edf0f2;
-  --color-gnome-text: #241f31;
+  --color-gnome-dark: #f4f4f7;
+  --color-gnome-text: #24202d;
   --color-gnome-surface: #ffffff;
   --color-gnome-overlay: #f6f5f4;
-  --color-gnome-text-secondary: #5e5c64;
+  --color-gnome-text-secondary: #5e5c64; 
   --border: rgba(0, 0, 0, 0.08);
   --gnome-border: 1px solid rgba(0, 0, 0, 0.08);
 }

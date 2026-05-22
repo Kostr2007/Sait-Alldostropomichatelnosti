@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.28.31-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
-![NixOS](https://img.shields.io/badge/NixOS-24.11-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
+![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
 
 ![Тип](https://img.shields.io/badge/Тип-Путеводитель-33d17a?style=for-the-badge)

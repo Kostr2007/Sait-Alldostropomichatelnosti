@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
       <a href="/about" class="adwaita-button text-sm px-5 py-2"> О проекте </a>
 
       <!-- Переключатель темы (пока заглушка) -->
-      <button class="hover:bg-gnome-surface circle-button transition-colors">
+      <button id="theme-toggle" class="hover:bg-gnome-surface circle-button transition-colors">
         🌙
       </button>
     </div>
@@ -109,6 +109,19 @@ const currentPath = Astro.url.pathname;
 <script>
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
+  const themeToggle = document.getElementById('theme-toggle');
+
+  if (themeToggle) {
+    const isLight = document.documentElement.classList.contains('light');
+    themeToggle.textContent = isLight ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      const currentIsLight = document.documentElement.classList.contains('light');
+      localStorage.setItem('theme', currentIsLight ? 'light' : 'dark');
+      themeToggle.textContent = currentIsLight ? '☀️' : '🌙';
+    });
+  }
 
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', () => {
