@@ -71,7 +71,7 @@
 
 @layer base {
   body {
-    @apply bg-gnome-bg text-gnome-text font-sans antialiased;
+    @apply bg-gnome-bg text-gnome-text font-sans antialiased transition-all duration-200 ease-linear;
     /* Убираем лишние отступы */
     position: relative;
     margin: 0;
