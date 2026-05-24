@@ -1,43 +1,114 @@
 /* === GNOME / Adwaita Theme === */
 @theme {
-  /* Основные цвета */
-  --color-gnome-dark: #1f1b29;
-  --color-gnome-bg: #241f31;
-  --color-gnome-surface: #3d3846;
-  --color-gnome-overlay: #2c2836;
+  /* =================== Абсолютная палитра =================== */
 
-  --color-gnome-text: #f6f5f4;
-  --color-gnome-text-secondary: #c0bfbc;
-  --color-gnome-text-muted: #9a9996;
+  --color-gnome-blue-50: #f0f8fe;
+  --color-gnome-blue-100: #dceffd;
+  --color-gnome-blue-200: #c2e3fb;
+  --color-gnome-blue-300: #97d3f9;
+  --color-gnome-blue-400: #66b9f4;
+  --color-gnome-blue-500: #439cee;
+  --color-gnome-blue-600: #3584e4;
+  --color-gnome-blue-700: #2569d0;
+  --color-gnome-blue-800: #2456a9;
+  --color-gnome-blue-900: #224a86;
+  --color-gnome-blue-950: #192e52;
 
-  /* Акцентные цвета */
-  --color-gnome-white: #ffffff;
-  --color-gnome-blue: #3584e4;
-  --color-gnome-green: #33d17a;
-  --color-gnome-orange: #ff7800;
-  --color-gnome-red: #e01b24;
-  --color-gnome-yellow: #f6d32d;
-  --color-gnome-purple: #9141ac;
-  --color-gnome-brown: #986a44;
+  --color-gnome-green-50: #f1fcf5;
+  --color-gnome-green-100: #defaea;
+  --color-gnome-green-200: #bef4d5;
+  --color-gnome-green-300: #8beab5;
+  --color-gnome-green-400: #52d68d;
+  --color-gnome-green-500: #33d17a;
+  --color-gnome-green-600: #1d9c56;
+  --color-gnome-green-700: #1b7a46;
+  --color-gnome-green-800: #1a613b;
+  --color-gnome-green-900: #175032;
+  --color-gnome-green-950: #072c19;
 
-  /* Лёгкие цвета */
+  --color-gnome-yellow-50: #fefde8;
+  --color-gnome-yellow-100: #fdfac4;
+  --color-gnome-yellow-200: #fcf18c;
+  --color-gnome-yellow-300: #f9e24b;
+  --color-gnome-yellow-400: #f6d32d;
+  --color-gnome-yellow-500: #e5b60d;
+  --color-gnome-yellow-600: #c68e08;
+  --color-gnome-yellow-700: #9e650a;
+  --color-gnome-yellow-800: #825011;
+  --color-gnome-yellow-900: #6f4214;
+  --color-gnome-yellow-950: #412207;
 
-  --color-gnome-blue-light: #62a0ea;
-  --color-gnome-green-light: #57e389;
-  --color-gnome-orange-light: #ffa348;
-  --color-gnome-red-light: #ed333b;
-  --color-gnome-yellow-light: #f8e45c;
-  --color-gnome-purple-light: #c061cb;
-  --color-gnome-brown-light: #b5835a;
+  --color-gnome-orange-50: #fff9ec;
+  --color-gnome-orange-100: #fff2d3;
+  --color-gnome-orange-200: #ffe1a5;
+  --color-gnome-orange-300: #ffca6d;
+  --color-gnome-orange-400: #ffa932;
+  --color-gnome-orange-500: #ff8e0a;
+  --color-gnome-orange-600: #ff7800;
+  --color-gnome-orange-700: #cc5702;
+  --color-gnome-orange-800: #a1440b;
+  --color-gnome-orange-900: #82390c;
+  --color-gnome-orange-950: #461b04;
 
-  /* Hover-варианты */
-  --color-gnome-blue-hover: #1c71d8;
-  --color-gnome-green-hover: #2ec27e;
-  --color-gnome-orange-hover: #e66100;
-  --color-gnome-red-hover: #c01c28;
-  --color-gnome-yellow-hover: #f5c211;
-  --color-gnome-purple-hover: #813d9c;
-  --color-gnome-brown-hover: #865e3c;
+  --color-gnome-red-50: #fff1f2;
+  --color-gnome-red-100: #ffe1e2;
+  --color-gnome-red-200: #ffc8cb;
+  --color-gnome-red-300: #ffa1a5;
+  --color-gnome-red-400: #fe6b72;
+  --color-gnome-red-500: #f63d45;
+  --color-gnome-red-600: #e01b24;
+  --color-gnome-red-700: #c0151d;
+  --color-gnome-red-800: #9e161c;
+  --color-gnome-red-900: #83191e;
+  --color-gnome-red-950: #48070a;
+
+  --color-gnome-purple-50: #fbf6fd;
+  --color-gnome-purple-100: #f6ecfb;
+  --color-gnome-purple-200: #ecd8f6;
+  --color-gnome-purple-300: #dfb9ee;
+  --color-gnome-purple-400: #cc8fe3;
+  --color-gnome-purple-500: #b364d1;
+  --color-gnome-purple-600: #9141ac;
+  --color-gnome-purple-700: #7f3695;
+  --color-gnome-purple-800: #692e7a;
+  --color-gnome-purple-900: #592a65;
+  --color-gnome-purple-950: #381141;
+
+  --color-gnome-brown-50: #f7f4ef;
+  --color-gnome-brown-100: #ece5d5;
+  --color-gnome-brown-200: #dbcbad;
+  --color-gnome-brown-300: #c6aa7e;
+  --color-gnome-brown-400: #b58e5a;
+  --color-gnome-brown-500: #a67c4c;
+  --color-gnome-brown-600: #986a44;
+  --color-gnome-brown-700: #734c35;
+  --color-gnome-brown-800: #614032;
+  --color-gnome-brown-900: #54382f;
+  --color-gnome-brown-950: #301d18;
+
+  --color-gnome-light-50: #fafaf9;
+  --color-gnome-light-100: #f5f5f4;
+  --color-gnome-light-200: #e7e6e4;
+  --color-gnome-light-300: #deddda;
+  --color-gnome-light-400: #a8a69e;
+  --color-gnome-light-500: #78756c;
+  --color-gnome-light-600: #57564e;
+  --color-gnome-light-700: #44433c;
+  --color-gnome-light-800: #292724;
+  --color-gnome-light-900: #1c1b17;
+  --color-gnome-light-950: #0c0b09;
+
+  --color-gnome-dark-50: #fafafa;
+  --color-gnome-dark-100: #f4f3f6;
+  --color-gnome-dark-200: #e4e2e9;
+  --color-gnome-dark-300: #d5d2da;
+  --color-gnome-dark-400: #a39caf;
+  --color-gnome-dark-500: #736c7f;
+  --color-gnome-dark-600: #544d60;
+  --color-gnome-dark-700: #3d3846;
+  --color-gnome-dark-800: #28252c;
+  --color-gnome-dark-900: #19161d;
+  --color-gnome-dark-950: #09080c;
 
   /* Шрифты */
 
@@ -56,6 +127,30 @@
   --radius-3xl: 2.5rem;
   --radius-full: 9999px;
 
+  /* Эффекты Libadwaita */
+  --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
+  --gnome-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  /* Градные цвета для границ */
+
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* =================== Функциональные акценты (Смысловые роли) =================== */
+  --color-gnome-primary: var(--color-gnome-blue-600);
+  --color-gnome-success: var(--color-gnome-green-500);
+  --color-gnome-destructive: var(--color-gnome-red-600);
+
+  /* Семантические токены окружения (Тёмная тема) */
+  --color-gnome-dark: var(--color-gnome-dark-900);
+  --color-gnome-bg: var(--color-gnome-dark-800);
+  --color-gnome-surface: var(--color-gnome-dark-600);
+  --color-gnome-overlay: var(--color-gnome-dark-700);
+  --color-gnome-text: var(--color-gnome-light-100);
+  --color-gnome-text-secondary: var(--color-gnome-light-300);
+  --color-gnome-text-muted: var(--color-gnome-light-400);
+
+  /* Закругление объектов */
+
   --radius-card: var(--radius-2xl);
   --radius-card-featured: var(--radius-3xl); /* для главной карточки */
   --radius-button: var(--radius-xl);
@@ -72,24 +167,22 @@
   --radius-button-hover-out: var(
     --radius-2xl
   ); /* Сильное скругление как бы выход... как стрелка... out! */
-
-  /* Эффекты Libadwaita */
-  --gnome-border: 1px solid rgba(255, 255, 255, 0.05);
-  --gnome-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-
-  /* градные цвета для границ */
-
-  --border: rgba(255, 255, 255, 0.1);
 }
 
 .light {
   --color-gnome-bg: #edf0f2;
   --color-gnome-dark: #f4f4f7;
-  --color-gnome-white: #9a9996;
   --color-gnome-text: #24202d;
   --color-gnome-surface: #ffffff;
   --color-gnome-overlay: #f6f5f4;
-  --color-gnome-text-secondary: #5e5c64; 
+  --color-gnome-text-secondary: #5e5c64;
   --border: rgba(0, 0, 0, 0.08);
   --gnome-border: 1px solid rgba(0, 0, 0, 0.08);
+
+  /* Переопределение акцентов под светлую тему для идеального контраста */
+  --color-gnome-primary: var(--color-gnome-blue-600);
+  --color-gnome-success: var(
+    --color-gnome-green-600
+  ); /* Чуть глубже, чтобы не сливался */
+  --color-gnome-destructive: var(--color-gnome-red-600);
 }
