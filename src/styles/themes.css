@@ -138,7 +138,16 @@
   /* =================== Функциональные акценты (Смысловые роли) =================== */
   --color-gnome-primary: var(--color-gnome-blue-600);
   --color-gnome-success: var(--color-gnome-green-500);
+  --color-gnome-accent: var(--color-gnome-orange-600);
   --color-gnome-destructive: var(--color-gnome-red-600);
+  --color-gnome-white: var(--color-gnome-dark-50);
+
+  /* hover */
+
+  --color-gnome-primary-hover: var(--color-gnome-blue-700);
+  --color-gnome-success-hover: var(--color-gnome-green-600);
+  --color-gnome-accent-hover: var(--color-gnome-orange-700);
+  --color-gnome-destructive-hover: var(--color-gnome-red-700);
 
   /* Семантические токены окружения (Тёмная тема) */
   --color-gnome-dark: var(--color-gnome-dark-900);
@@ -170,19 +179,28 @@
 }
 
 .light {
-  --color-gnome-bg: #edf0f2;
-  --color-gnome-dark: #f4f4f7;
-  --color-gnome-text: #24202d;
-  --color-gnome-surface: #ffffff;
-  --color-gnome-overlay: #f6f5f4;
-  --color-gnome-text-secondary: #5e5c64;
+  --color-gnome-bg: var(--color-gnome-dark-100);
+  --color-gnome-dark: var(--color-gnome-dark-300);
+  --color-gnome-text: var(--color-gnome-light-800);
+  --color-gnome-text-secondary: var(--color-gnome-light-500);
+  --color-gnome-text-muted: var(--color-gnome-light-600);
+  --color-gnome-surface: var(--color-gnome-light-200);
+  --color-gnome-overlay: var(--color-gnome-light-50);
   --border: rgba(0, 0, 0, 0.08);
   --gnome-border: 1px solid rgba(0, 0, 0, 0.08);
 
   /* Переопределение акцентов под светлую тему для идеального контраста */
-  --color-gnome-primary: var(--color-gnome-blue-600);
+  --color-gnome-primary: var(--color-gnome-blue-400);
   --color-gnome-success: var(
-    --color-gnome-green-600
+    --color-gnome-green-400
   ); /* Чуть глубже, чтобы не сливался */
-  --color-gnome-destructive: var(--color-gnome-red-600);
+  --color-gnome-accent: var(--color-gnome-orange-400);
+  --color-gnome-destructive: var(--color-gnome-red-400);
+
+  /* hover */
+
+  --color-gnome-primary-hover: var(--color-gnome-blue-700);
+  --color-gnome-success-hover: var(--color-gnome-green-600);
+  --color-gnome-accent-hover: var(--color-gnome-orange-700);
+  --color-gnome-destructive-hover: var(--color-gnome-red-700);
 }
