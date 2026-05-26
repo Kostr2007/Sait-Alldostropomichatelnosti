@@ -3,45 +3,45 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header
-  class="sticky top-0 z-50 bg-gnome-bg/95 backdrop-blur-lg border-b border-white/5"
+  class="sticky top-0 z-50 bg-bg/95 backdrop-blur-lg border-b border-white/5"
 >
   <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
     <!-- Логотип -->
     <a href="/" class="flex items-center gap-3 group">
       <div
-        class="bg-gradient-to-br from-gnome-blue to-gnome-green circle-button"
+        class="bg-linear-30 from-primary to-success circle-button"
       >
         Ч
       </div>
       <div>
-        <span class="text-2xl font-semibold text-gnome-text tracking-tight"
+        <span class="text-2xl font-semibold text-text tracking-tight"
           >Челны</span
         >
-        <span class="text-gnome-text-secondary text-sm block -mt-1"
+        <span class="text-text-secondary text-sm block -mt-1"
           >Достопримечательности</span
         >
       </div>
     </a>
 
     <!-- Навигация -->
-    <nav class="hidden md:flex items-center gap-8 text-gnome-text-secondary">
+    <nav class="hidden md:flex items-center gap-8 text-text-secondary">
       <a
         href="/attractions"
-        class="nav-link ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath.includes('/attractions') ? 'text-text' : ''}"
       >
         Достопримечательности
       </a>
 
       <a
         href="/map"
-        class="nav-link ${currentPath === '/map' ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath === '/map' ? 'text-text' : ''}"
       >
         Карта
       </a>
 
       <a
         href="/routes"
-        class="nav-link ${currentPath === '/routes' ? 'text-gnome-text' : ''}"
+        class="nav-link ${currentPath === '/routes' ? 'text-text' : ''}"
       >
         Маршруты
       </a>
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
       <a href="/about" class="adwaita-button text-sm px-5 py-2"> О проекте </a>
 
       <button
-        class="hover:bg-gnome-surface circle-button transition-colors theme-toggle-btn"
+        class="hover:bg-surface circle-button transition-colors theme-toggle-btn"
       >
         🌙
       </button>
@@ -60,7 +60,7 @@ const currentPath = Astro.url.pathname;
 
     <button
       id="menu-toggle"
-      class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xs hover:bg-gnome-surface transition-colors z-50"
+      class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xs hover:bg-surface transition-colors z-50"
       aria-label="Открыть меню"
     >
       <span class="hamburger-line line-1"></span>
@@ -70,22 +70,22 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <div id="mobile-menu" class="md:hidden mobile-menu-panel">
-    <nav class="flex flex-col gap-4 text-gnome-text-secondary text-lg">
+    <nav class="flex flex-col gap-4 text-text-secondary text-lg">
       <a
         href="/attractions"
-        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath.includes('/attractions') ? 'text-gnome-text' : ''}`}
+        class={`hover:text-text transition-colors py-2 font-medium ${currentPath.includes('/attractions') ? 'text-text' : ''}`}
       >
         Достопримечательности
       </a>
       <a
         href="/map"
-        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath === '/map' ? 'text-gnome-text' : ''}`}
+        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/map' ? 'text-text' : ''}`}
       >
         Карта
       </a>
       <a
         href="/routes"
-        class={`hover:text-gnome-text transition-colors py-2 font-medium ${currentPath === '/routes' ? 'text-gnome-text' : ''}`}
+        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/routes' ? 'text-text' : ''}`}
       >
         Маршруты
       </a>
@@ -93,12 +93,12 @@ const currentPath = Astro.url.pathname;
       <div class="flex items-center justify-between pt-2">
         <a
           href="/about"
-          class="adwaita-button text-sm px-5 py-2 text-center flex-1 mr-4 bg-gnome-surface"
+          class="adwaita-button text-sm px-5 py-2 text-center flex-1 mr-4 bg-surface"
         >
           О проекте
         </a>
         <button
-          class="hover:bg-gnome-surface circle-button transition-colors theme-toggle-btn"
+          class="hover:bg-surface circle-button transition-colors theme-toggle-btn"
         >
           🌙
         </button>

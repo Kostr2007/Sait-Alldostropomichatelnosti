@@ -1,0 +1,109 @@
+/* Единая заготовка для всех стандартных рамок темы */
+@utility adwaita-border {
+  border: 1px solid var(--border);
+}
+
+@layer components {
+  /* Создаем переиспользуемый класс для карточек */
+  .adwaita-card {
+    @apply adwaita-border bg-surface/70 backdrop-blur-xl shadow-xl transition-transform duration-200 ease-linear;
+    border-radius: var(--radius-card);
+    padding: var(--spacing-card-padding);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  /* Кнопка */
+  .adwaita-button {
+    @apply adwaita-border transition-all active:scale-95 hover:scale-102 font-medium shadow-inner cursor-pointer duration-200 ease-in-out;
+    border-radius: var(--radius-button);
+    padding: 0.5rem 1.5rem;
+  }
+
+  .adwaita-button:hover {
+    border-radius: var(--radius-button-hover);
+  }
+
+  /* Кнопки показывающий переход на следующию страницу или выход из неё */
+
+  .adwaita-button-in:hover {
+    border-top-left-radius: var(--radius-button-hover-in);
+    border-bottom-left-radius: var(--radius-button-hover-in);
+    border-top-right-radius: var(--radius-button-hover-out);
+    border-bottom-right-radius: var(--radius-button-hover-out);
+  }
+
+  .adwaita-button-out:hover {
+    border-top-left-radius: var(--radius-button-hover-out);
+    border-bottom-left-radius: var(--radius-button-hover-out);
+    border-top-right-radius: var(--radius-button-hover-in);
+    border-bottom-right-radius: var(--radius-button-hover-in);
+  }
+
+  /* Кнопки которые показывают что ссылаются на внешнию ссылку, например youtube */
+
+  .adwaita-button-external:hover {
+    border-top-left-radius: var(--radius-button-hover-out);
+    border-bottom-left-radius: var(--radius-button-hover-in);
+    border-top-right-radius: var(--radius-button-hover-out);
+    border-bottom-right-radius: var(--radius-button-hover-in);
+  }
+
+  .adwaita-button:focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+  }
+
+  /* Круглая кнопка. */
+  .circle-button {
+    @apply rounded-full flex items-center justify-center text-2xl text-text font-bold transition-all duration-200 group-hover:scale-105 ease-in-out;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  /* Единый стиль для ссылок навигации */
+  .nav-link {
+    @apply text-text-secondary hover:text-text transition-colors font-medium;
+  }
+
+  /* Общие стили для полосок кнопки-меню */
+  .hamburger-line {
+    @apply w-6 h-0.5 bg-white transition-all duration-200 ease-in-out;
+  }
+
+  /* Специфический класс для панели мобильного меню */
+  .mobile-menu-panel {
+    @apply absolute top-full left-0 w-full bg-overlay/98 backdrop-blur-xl rounded-sm adwaita-border px-6 py-6 shadow-2xl transition-all duration-300 ease-out opacity-0 pointer-events-none -translate-y-4;
+  }
+
+  /* Управление плавным открытием мобильного меню */
+  .mobile-menu-active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Фон для предметов, эмодзи и так далее. */
+  .background-item {
+    @apply adwaita-border flex items-center justify-center text-4xl transition-all duration-200;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    width: 5rem;
+    height: 5rem;
+  }
+
+  /* Сетка для карточек */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Выделяем первую карточку в сетке на больших экранах */
+  @media (min-width: 1024px) {
+    .bento-grid .card-featured {
+      grid-row: span 2;
+      grid-column: span 2;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # 🌆 Достопримечательности Набережных Челнов
 
-![Version](https://img.shields.io/badge/version-0.30.35-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.31.36-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
 ![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
@@ -98,6 +98,8 @@ git push
 - [x] Разобраться с проблемой в мобильной приложений с прокрутокой (так как там отступ).
 - [x] Почистить классы в `header.astro`.
 - [x] Добавить три полоски для подержки мобильного меню!
+- [x] Рассортировать `.css` файлы.
+- [ ] Исправить ошибку со границами.
 - [ ] Добавить функций добавление аккаунта.
 - [ ] Добавить градиентов и проработку теней, фона.
 

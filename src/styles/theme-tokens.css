@@ -1,0 +1,76 @@
+@theme {
+  /* ИНСТРУКЦИЯ! Мы тут храним только VAR компоненты, остальное же к themes так как там мы и применяем абсолютные акценты*/
+  /* =================== Функциональные акценты (Смысловые роли) =================== */
+  /* Основные акценты */
+  --color-primary: var(--color-blue-600);
+  --color-success: var(--color-green-500);
+  --color-accent: var(--color-orange-600);
+  --color-secondary: var(--color-purple-500);
+  --color-destructive: var(--color-red-600);
+  --color-warning: var(--color-yellow-500);
+  --color-white: var(--color-dark-50);
+
+  /* Hover вариация */
+
+  --color-primary-hover: var(--color-blue-700);
+  --color-success-hover: var(--color-green-600);
+  --color-accent-hover: var(--color-orange-700);
+  --color-destructive-hover: var(--color-red-700);
+
+  /* Фоновая иерархия */
+  --color-dark: var(--color-dark-900); /* Если будет нужнее темнее bg*/
+  --color-bg: var(--color-dark-800);
+  --color-surface: var(--color-dark-600);
+  --color-surface-2: var(--color-dark-700); /* для карточек второго уровня */
+  --color-overlay: var(--color-dark-700);
+
+  /* Текст */
+  --color-text: var(--color-light-100);
+  --color-text-secondary: var(--color-light-300);
+  --color-text-muted: var(--color-light-400);
+  --color-text-on-primary: var(--color-light-100); /* для кнопок */
+
+  /* Радиусы — централизованно */
+  --radius-sm: var(--radius-sm);
+  --radius: var(--radius-xl);
+  --radius-lg: var(--radius-2xl);
+  --radius-card: var(--radius-2xl);
+  --radius-button: var(--radius-xl);
+  --radius-button-hover: var(--radius-2xl);
+
+  /* Для hover-эффектов (твои асимметричные закругления) */
+  --radius-button-hover-in: var(--radius-sm);
+  --radius-button-hover-out: var(--radius-2xl);
+}
+
+.light {
+  /* Фоновая иерархия */
+  --color-primary: var(--color-blue-400);
+  --color-success: var(--color-green-400); /* Чуть глубже, чтобы не сливался */
+  --color-accent: var(--color-orange-400);
+  --color-secondary: var(--color-purple-400);
+  --color-destructive: var(--color-red-400);
+  --color-warning: var(--color-yellow-400);
+
+  /* hover */
+  --color-primary-hover: var(--color-blue-600);
+  --color-success-hover: var(--color-green-500);
+  --color-accent-hover: var(--color-orange-600);
+  --color-destructive-hover: var(--color-red-600);
+
+  /* Фоновая иерархия */
+  --color-dark: var(--color-dark-300);
+  --color-bg: var(--color-dark-100);
+  --color-surface: var(--color-light-200);
+  --color-surface-2: var(--color-light-300);
+  --color-overlay: var(--color-light-50);
+
+  /* Текст */
+  --color-text: var(--color-light-800);
+  --color-text-secondary: var(--color-light-500);
+  --color-text-muted: var(--color-light-600);
+  --color-text-on-primary: var(--color-light-300);
+
+  /* Границы */
+  --border: rgba(0, 0, 0, 0.12);
+}
