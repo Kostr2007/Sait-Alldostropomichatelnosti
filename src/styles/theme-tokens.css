@@ -3,19 +3,18 @@
   /* =================== Функциональные акценты (Смысловые роли) =================== */
   /* Основные акценты */
   --color-primary: var(--color-blue-600);
-  --color-success: var(--color-green-500);
+  --color-success: var(--color-green-600);
   --color-accent: var(--color-orange-600);
   --color-secondary: var(--color-purple-500);
-  --color-destructive: var(--color-red-600);
-  --color-warning: var(--color-yellow-500);
+  --color-destructive: var(--color-red-800);
+  --color-warning: var(--color-yellow-400);
   --color-white: var(--color-dark-50);
 
   /* Hover вариация */
 
   --color-primary-hover: var(--color-blue-700);
-  --color-success-hover: var(--color-green-600);
+  --color-success-hover: var(--color-green-700);
   --color-accent-hover: var(--color-orange-700);
-  --color-destructive-hover: var(--color-red-700);
 
   /* Фоновая иерархия */
   --color-dark: var(--color-dark-900); /* Если будет нужнее темнее bg*/
@@ -28,7 +27,7 @@
   --color-text: var(--color-light-100);
   --color-text-secondary: var(--color-light-300);
   --color-text-muted: var(--color-light-400);
-  --color-text-on-primary: var(--color-light-100); /* для кнопок */
+  --color-text-on-primary: var(--color-light-50); /* для кнопок */
 
   /* Радиусы — централизованно */
   --radius-sm: var(--radius-sm);
@@ -41,6 +40,14 @@
   /* Для hover-эффектов (твои асимметричные закругления) */
   --radius-button-hover-in: var(--radius-sm);
   --radius-button-hover-out: var(--radius-2xl);
+
+  /* Границы */
+  --color-border: var(--color-dark-600);
+  --color-btn-border: color-mix(
+    in oklab,
+    var(--color-dark-300) 15%,
+    transparent
+  );
 }
 
 .light {
@@ -48,15 +55,14 @@
   --color-primary: var(--color-blue-400);
   --color-success: var(--color-green-400); /* Чуть глубже, чтобы не сливался */
   --color-accent: var(--color-orange-400);
-  --color-secondary: var(--color-purple-400);
-  --color-destructive: var(--color-red-400);
-  --color-warning: var(--color-yellow-400);
+  --color-secondary: var(--color-purple-300);
+  --color-destructive: var(--color-red-600);
+  --color-warning: var(--color-yellow-200);
 
   /* hover */
-  --color-primary-hover: var(--color-blue-600);
+  --color-primary-hover: var(--color-blue-500);
   --color-success-hover: var(--color-green-500);
-  --color-accent-hover: var(--color-orange-600);
-  --color-destructive-hover: var(--color-red-600);
+  --color-accent-hover: var(--color-orange-500);
 
   /* Фоновая иерархия */
   --color-dark: var(--color-dark-300);
@@ -72,5 +78,10 @@
   --color-text-on-primary: var(--color-light-300);
 
   /* Границы */
-  --border: rgba(0, 0, 0, 0.12);
+  --color-border: var(--color-light-300);
+  --color-btn-border: color-mix(
+    in oklab,
+    var(--color-light-950) 15%,
+    transparent
+  );
 }

@@ -35,15 +35,6 @@
 }
 
 /* Глобальный сброс границ — хорошая практика из Bearnie */
-* {
-  border-color: var(--border);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
 :focus-visible {
   outline: 2px solid var(--color-blue);
@@ -90,5 +81,15 @@
   code,
   pre {
     @apply font-mono;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 }
