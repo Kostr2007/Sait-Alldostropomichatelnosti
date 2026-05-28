@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { supabase } from '../../lib/supabase.ts';
+---
+
+<Layout>
+  <main class="max-w-md mx-auto py-16">
+    <div class="adwaita-card p-10">
+      <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
+
+      <form id="register-form" class="space-y-6">
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          class="w-full p-4 rounded-2xl bg-surface border border-border"
+        />
+        <input
+          type="password"
+          placeholder="Пароль"
+          required
+          class="w-full p-4 rounded-2xl bg-surface border border-border"
+        />
+
+        <button
+          type="submit"
+          class="adwaita-button w-full bg-primary hover:bg-primary-hover py-4 text-lg"
+        >
+          Зарегистрироваться
+        </button>
+      </form>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const form = document.getElementById('register-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const [emailInput, passwordInput] = form.querySelectorAll('input');
+
+    const { error } = await supabase.auth.signUp({
+      email: emailInput.value,
+      password: passwordInput.value,
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      alert('Письмо с подтверждением отправлено!');
+    }
+  });
+</script>
