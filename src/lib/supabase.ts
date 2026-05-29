@@ -1,14 +1,12 @@
-import { createBrowserClient, createServerClient } from '@supabase/supabase-js';
+// src/lib/supabase.ts
+import { createBrowserClient } from '@supabase/ssr'
+
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY
 
 export const supabase = createBrowserClient(
-  import.meta.env.PUBLIC_SUPABASE_URL,
-  import.meta.env.PUBLIC_SUPABASE_ANON_KEY,
-);
+  supabaseUrl,
+  supabaseAnonKey
+)
 
-// Для серверных действий
-export const createSupabaseServer = (cookies: any) =>
-  createServerClient(
-    import.meta.env.PUBLIC_SUPABASE_URL,
-    import.meta.env.PUBLIC_SUPABASE_ANON_KEY,
-    { cookies },
-  );
+// Если позже понадобится серверный клиент — добавим отдельно
