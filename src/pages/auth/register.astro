@@ -55,14 +55,14 @@ import Footer from '../../components/Footer.astro';
       email: emailInput.value,
       password: passwordInput.value,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: `${window.location.origin}/auth/confirm`,
       },
     });
-
     if (error) {
-      alert('Ошибка: ' + error.message);
+      alert(`Ошибка регистрации: ` + error.message);
     } else {
-      alert('Письмо с подтверждением отправлено на почту!');
+      alert('Проверьте вашу почту для подтверждения аккаунта!');
+      form.reset();
     }
   });
 </script>
