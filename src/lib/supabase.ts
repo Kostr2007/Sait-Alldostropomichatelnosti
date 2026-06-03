@@ -1,7 +1,7 @@
 import { createBrowserClient } from '@supabase/ssr';
 
 const suopabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-const suopabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
+const suopabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
 if (!suopabaseUrl || !suopabaseAnonKey) {
   throw new Error(
