@@ -7,32 +7,53 @@ import Footer from '../../components/Footer.astro';
 <Layout>
   <Header />
   <main class="flex-1 max-w-md mx-auto py-30 md:py-60 px-4">
-    <div class="adwaita-card p-10">
-      <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
+    <div class="adwaita-card p-10" id="register-container">
+      <!-- Заголовок и форма -->
+      <div id="register-form-container">
+        <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
 
-      <form id="register-form" class="space-y-6">
-        <input
-          type="email"
-          id="email"
-          placeholder="Email"
-          required
-          class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
-        />
-        <input
-          type="password"
-          id="password"
-          placeholder="Пароль"
-          required
-          class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
-        />
+        <form id="register-form" class="space-y-6">
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+            class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Пароль (минимум 6 символов)"
+            required
+            minlength="6"
+            class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
+          />
 
-        <button
-          type="submit"
-          class="adwaita-button w-full bg-primary hover:bg-primary-hover py-4 text-lg font-medium"
+          <button
+            type="submit"
+            id="submit-btn"
+            class="adwaita-button w-full bg-primary hover:bg-primary-hover py-4 text-lg font-medium transition-all"
+          >
+            Зарегистрироваться
+          </button>
+        </form>
+      </div>
+
+      <!-- Блок успеха (скрыт по умолчанию) -->
+      <div id="success-container" class="hidden text-center space-y-6">
+        <div class="text-6xl mb-4">🎉</div>
+        <h2 class="text-2xl font-semibold">Аккаунт создан!</h2>
+        <p class="text-text-secondary text-lg">
+          Мы отправили письмо с подтверждением на вашу почту.<br />
+          <strong>Проверьте почту (включая папку "Спам")</strong>
+        </p>
+        <a
+          href="/auth/login"
+          class="adwaita-button inline-block bg-success hover:bg-success-hover px-8 py-3 text-lg"
         >
-          Зарегистрироваться
-        </button>
-      </form>
+          Перейти к входу
+        </a>
+      </div>
     </div>
   </main>
   <Footer />
@@ -41,28 +62,68 @@ import Footer from '../../components/Footer.astro';
 <script>
   import { supabase } from '../../lib/supabase.ts';
 
-  const form = document.getElementById('register-form') as HTMLFormElement;
+  // Ждём, пока DOM полностью загрузится
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('register-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const formContainer = document.getElementById('register-form-container');
+    const successContainer = document.getElementById('success-container');
 
-  form.addEventListener('submit', async (e: Event) => {
-    e.preventDefault();
-
-    const emailInput = document.getElementById('email') as HTMLInputElement;
-    const passwordInput = document.getElementById(
-      'password',
-    ) as HTMLInputElement;
-
-    const { error } = await supabase.auth.signUp({
-      email: emailInput.value,
-      password: passwordInput.value,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/confirm`,
-      },
-    });
-    if (error) {
-      alert(`Ошибка регистрации: ` + error.message);
-    } else {
-      alert('Проверьте вашу почту для подтверждения аккаунта!');
-      form.reset();
+    if (!form) {
+      console.error('❌ Форма не найдена! Проверь id="register-form"');
+      return;
     }
+
+    console.log('✅ Форма успешно найдена, слушатель добавлен');
+
+    form.addEventListener('submit', async (e: Event) => {
+      e.preventDefault();        // ← Это должно сработать
+      console.log('🚀 Форма отправлена, preventDefault сработал');
+
+      const emailInput = document.getElementById('email') as HTMLInputElement;
+      const passwordInput = document.getElementById('password') as HTMLInputElement;
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (password.length < 6) {
+        alert('Пароль должен содержать минимум 6 символов');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Регистрация...';
+      }
+
+      try {
+        const { error } = await supabase.auth.signUp({
+          email: email,
+          password: password,
+          options: {
+            emailRedirectTo: `${window.location.origin}/auth/confirm`,
+          },
+        });
+
+        if (error) {
+          console.error('Supabase error:', error);
+          alert(`Ошибка: ${error.message}`);
+        } else {
+          console.log('✅ Регистрация прошла успешно!');
+          if (formContainer && successContainer) {
+            formContainer.classList.add('hidden');
+            successContainer.classList.remove('hidden');
+          }
+        }
+      } catch (err: any) {
+        console.error('Неожиданная ошибка:', err);
+        alert('Что-то пошло не так: ' + err.message);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Зарегистрироваться';
+        }
+      }
+    });
   });
 </script>
