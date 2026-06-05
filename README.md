@@ -1,6 +1,6 @@
 # 🌆 Достопримечательности Набережных Челнов
 
-![Version](https://img.shields.io/badge/version-0.35.41-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.38.46-blue?style=for-the-badge)
 ![Astro](https://img.shields.io/badge/Astro-6-BC52EE?logo=astro&logoColor=white&style=for-the-badge)
 ![NixOS](https://img.shields.io/badge/NixOS-26.05-5277C3?logo=nixos&logoColor=white&style=for-the-badge)
 ![GNOME](https://img.shields.io/badge/GNOME-Adwaita-3584e4?logo=gnome&logoColor=white&style=for-the-badge)
@@ -100,8 +100,8 @@ git push
 - [x] Добавить три полоски для подержки мобильного меню!
 - [x] Рассортировать `.css` файлы.
 - [x] Исправить ошибку со границами. (Проблема: Нельзя редактировать цвет в themes. Но при смене темы он меняет цвет! И почему смена тема... привязан цвет границ... на цвет **ТЕКСТА**)
-- [ ] Добавить функций добавление аккаунта. (supabase.com)
-  - [ ] Исправить `.env` файл на проверку, и исправить вывод зарегестрированного аккаунта.
+- [x] Добавить функций добавление аккаунта. (supabase.com)
+  - [x] Исправить `.env` файл на проверку, и исправить вывод зарегестрированного аккаунта.
 - [ ] Добавить градиентов и проработку теней, фона.
 
 ## Полезные сайты 🧑‍🎨🐈

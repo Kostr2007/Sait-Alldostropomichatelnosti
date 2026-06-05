@@ -11,8 +11,7 @@ import Footer from '../../components/Footer.astro';
       <!-- Заголовок и форма -->
       <div id="register-form-container">
         <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
-
-        <form id="register-form" class="space-y-6">
+        <form id="register-form" class="space-y-6" novalidate>
           <input
             type="email"
             id="email"
@@ -23,9 +22,9 @@ import Footer from '../../components/Footer.astro';
           <input
             type="password"
             id="password"
-            placeholder="Пароль (минимум 6 символов)"
+            placeholder="Пароль (минимум 8 символов)"
             required
-            minlength="6"
+            minlength="8"
             class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
           />
 
@@ -62,35 +61,81 @@ import Footer from '../../components/Footer.astro';
 <script>
   import { supabase } from '../../lib/supabase.ts';
 
-  // Ждём, пока DOM полностью загрузится
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('register-form') as HTMLFormElement;
-    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitBtn = document.getElementById(
+      'submit-btn',
+    ) as HTMLButtonElement;
     const formContainer = document.getElementById('register-form-container');
     const successContainer = document.getElementById('success-container');
 
     if (!form) {
-      console.error('❌ Форма не найдена! Проверь id="register-form"');
+      console.error('❌ Форма не найдена');
       return;
     }
 
-    console.log('✅ Форма успешно найдена, слушатель добавлен');
-
     form.addEventListener('submit', async (e: Event) => {
-      e.preventDefault();        // ← Это должно сработать
-      console.log('🚀 Форма отправлена, preventDefault сработал');
+      e.preventDefault();
 
       const emailInput = document.getElementById('email') as HTMLInputElement;
-      const passwordInput = document.getElementById('password') as HTMLInputElement;
+      const passwordInput = document.getElementById(
+        'password',
+      ) as HTMLInputElement;
 
       const email = emailInput.value.trim();
       const password = passwordInput.value.trim();
 
-      if (password.length < 6) {
-        alert('Пароль должен содержать минимум 6 символов');
+      // === ВАЛИДАЦИЯ ===
+      if (!email || !password) {
+        alert('Пожалуйста, заполните все поля');
         return;
       }
 
+      // Проверка email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Пожалуйста, введите корректный email адрес');
+        emailInput.focus();
+        return;
+      }
+
+      // Проверка сложности пароля
+      if (password.length < 8) {
+        alert('Пароль должен быть не менее 8 символов');
+        passwordInput.focus();
+        return;
+      }
+
+      // Защита от самых очевидных паролей
+      const easyPasswords = [
+        '12345678',
+        'qwertyui',
+        'password',
+        '11111111',
+        '87654321',
+        '123456789',
+      ];
+      if (easyPasswords.includes(password.toLowerCase())) {
+        alert(
+          'Этот пароль слишком простой и часто используется. Придумайте другой.',
+        );
+        passwordInput.focus();
+        return;
+      }
+
+      const hasUpperCase = /[A-Z]/.test(password);
+      const hasLowerCase = /[a-z]/.test(password);
+      const hasNumbers = /\d/.test(password);
+      // const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password); // можно добавить
+
+      if (!hasUpperCase || !hasLowerCase || !hasNumbers) {
+        alert(
+          'Пароль должен содержать:\n• Хотя бы одну заглавную букву (A-Z)\n• Хотя бы одну строчную букву (a-z)\n• Хотя бы одну цифру (0-9)',
+        );
+        return;
+      }
+
+      // Если всё ок — блокируем кнопку
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Регистрация...';
@@ -107,19 +152,22 @@ import Footer from '../../components/Footer.astro';
 
         if (error) {
           console.error('Supabase error:', error);
-          alert(`Ошибка: ${error.message}`);
+          alert('Ошибка регистрации: ' + error.message);
         } else {
-          console.log('✅ Регистрация прошла успешно!');
+          console.log('✅ Регистрация успешна!');
           if (formContainer && successContainer) {
             formContainer.classList.add('hidden');
             successContainer.classList.remove('hidden');
           }
         }
       } catch (err: any) {
-        console.error('Неожиданная ошибка:', err);
         alert('Что-то пошло не так: ' + err.message);
       } finally {
-        if (submitBtn) {
+        if (
+          submitBtn &&
+          formContainer &&
+          !formContainer.classList.contains('hidden')
+        ) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Зарегистрироваться';
         }
