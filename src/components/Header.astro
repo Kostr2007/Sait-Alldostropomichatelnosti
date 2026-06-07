@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 >
   <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
     <!-- Логотип -->
-    <a href="/" class="flex items-center gap-3 group">
+    <a href="/" class="flex gap-3 group">
       <div class="bg-linear-30 from-primary to-success circle-button">Ч</div>
       <div>
         <span class="text-2xl font-semibold text-text tracking-tight"
@@ -36,10 +36,10 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <a
-        href="/routes"
-        class="nav-link ${currentPath === '/routes' ? 'text-text' : ''}"
+        href="/auth/profile"
+        class="nav-link ${currentPath === '/auth/profile' ? 'text-text' : ''}"
       >
-        Маршруты
+        Профиль
       </a>
     </nav>
 
@@ -87,10 +87,10 @@ const currentPath = Astro.url.pathname;
         Карта
       </a>
       <a
-        href="/routes"
-        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/routes' ? 'text-text' : ''}`}
+        href="/auth/profile"
+        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/auth/profile' ? 'text-text' : ''}`}
       >
-        Маршруты
+        Профиль
       </a>
       <hr class="border-white/5 my-2" />
       <div class="flex items-center justify-between pt-2">

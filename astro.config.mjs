@@ -7,13 +7,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   integrations: [react()],
   site: 'https://your-site.ru',
   base: '/',
   trailingSlash: 'never',
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
   image: {
@@ -24,12 +25,12 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'github-dark',               // тёмная тема подсветки кода (под твою GNOME-тему)
+      theme: 'github-dark', // тёмная тема подсветки кода (под твою GNOME-тему)
       wrap: true,
     },
   },
 
   devToolbar: {
-    enabled: true,                        // панель разработчика в dev-режиме
+    enabled: true, // панель разработчика в dev-режиме
   },
 });
