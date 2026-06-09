@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 
 <Layout>
   <Header />
-  <main class="flex-1 mx-96 py-30 md:py-60 px-4">
+  <main class="flex-1 max-w-7xl mx-auto mx-96 py-30 md:py-60 px-4">
     <div class="adwaita-card md:p-10 p-8">
       <div class="flex items-center gap-3 group justify-between">
         <div class="bg-linear-300 from-dark to-text circle-button">Г</div>
@@ -15,6 +15,7 @@ import Footer from '../../components/Footer.astro';
         </div>
       </div>
       <hr class="my-8" />
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10">
       <form id="profile">
         <h1 class="text-3xl font-semibold mb-6">
           Вы не зарегестрированы! Пожалуйста войдете в аккаунт!
@@ -29,7 +30,8 @@ import Footer from '../../components/Footer.astro';
             подноробно узнать можно уже тут!<br />
           </p>
         </div>
-      </form>
+        </form>
+      </div>
     </div>
   </main>
   <Footer />
