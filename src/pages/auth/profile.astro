@@ -33,21 +33,24 @@ import Footer from '../../components/Footer.astro';
             <!-- например статус, дата регистрации и т.д. -->
           </div>
         </div>
-        <form id="profile">
-          <h1 class="text-3xl font-semibold mb-6">
-            Вы не зарегестрированы! Пожалуйста войдете в аккаунт!
-          </h1>
-          <div class="prose prose-invert max-w-none text-lg leading-relaxed">
-            <h2 class="text-2xl">
-              Так как вы не зарегестрированы, вы не можете:
-            </h2>
-            <p>
-              Добавлять достропомичательности.<br />Писать коментарий.<br
-              />Ставить такие как лайки, избраное, не нравится и жалоба.<br />И
-              подноробно узнать можно уже тут!<br />
-            </p>
-          </div>
-        </form>
+
+        <div class="lg:col-span-7">
+          <form id="profile">
+            <h1 class="text-3xl font-semibold mb-6">
+              Вы не зарегестрированы! Пожалуйста войдете в аккаунт!
+            </h1>
+            <div class="prose prose-invert max-w-none text-lg leading-relaxed">
+              <h2 class="text-2xl">
+                Так как вы не зарегестрированы, вы не можете:
+              </h2>
+              <p>
+                Добавлять достропомичательности.<br />Писать коментарий.<br
+                />Ставить такие как лайки, избраное, не нравится и жалоба.<br
+                />И подноробно узнать можно уже тут!<br />
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </main>
