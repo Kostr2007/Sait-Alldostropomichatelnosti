@@ -1,5 +1,11 @@
 ---
 const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/attractions', label: 'Достопримечательности', isActive: currentPath.includes('/attractions') },
+  { href: '/map', label: 'Карта', isActive: currentPath === '/map' },
+  { href: '/auth/profile', label: 'Профиль', isActive: currentPath === '/auth/profile' },
+];
 ---
 
 <header
@@ -19,28 +25,16 @@ const currentPath = Astro.url.pathname;
       </div>
     </a>
 
-    <!-- Навигация -->
+    <!-- Навигация (десктоп) -->
     <nav class="hidden md:flex items-center gap-8 text-text-secondary">
-      <a
-        href="/attractions"
-        class="nav-link ${currentPath.includes('/attractions') ? 'text-text' : ''}"
-      >
-        Достопримечательности
-      </a>
-
-      <a
-        href="/map"
-        class="nav-link ${currentPath === '/map' ? 'text-text' : ''}"
-      >
-        Карта
-      </a>
-
-      <a
-        href="/auth/profile"
-        class="nav-link ${currentPath === '/auth/profile' ? 'text-text' : ''}"
-      >
-        Профиль
-      </a>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`nav-link ${link.isActive ? 'text-text' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
     </nav>
 
     <!-- Правая часть -->
@@ -72,26 +66,17 @@ const currentPath = Astro.url.pathname;
     </button>
   </div>
 
+  <!-- Мобильное меню -->
   <div id="mobile-menu" class="md:hidden mobile-menu-panel">
     <nav class="flex flex-col gap-4 text-text-secondary text-lg">
-      <a
-        href="/attractions"
-        class={`hover:text-text transition-colors py-2 font-medium ${currentPath.includes('/attractions') ? 'text-text' : ''}`}
-      >
-        Достопримечательности
-      </a>
-      <a
-        href="/map"
-        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/map' ? 'text-text' : ''}`}
-      >
-        Карта
-      </a>
-      <a
-        href="/auth/profile"
-        class={`hover:text-text transition-colors py-2 font-medium ${currentPath === '/auth/profile' ? 'text-text' : ''}`}
-      >
-        Профиль
-      </a>
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`hover:text-text transition-colors py-2 font-medium ${link.isActive ? 'text-text' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
       <hr class="border-white/5 my-2" />
       <div class="flex items-center justify-between pt-2">
         <a

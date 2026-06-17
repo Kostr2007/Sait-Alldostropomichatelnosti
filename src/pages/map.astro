@@ -1,73 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import PageShell from '../layouts/PageShell.astro';
+import PageHero from '../components/PageHero.astro';
 import Mapping from '../components/Map.tsx';
 ---
 
-<Layout>
-  <Header />
+<PageShell>
+  <!-- Заголовок страницы -->
+  <PageHero
+    title="Карта достопримечательностей"
+    subtitle="Интерактивная карта Набережных Челнов с отметками всех интересных мест"
+  >
+    <div class="flex justify-center mt-12">
+      <a
+        href="/"
+        class="adwaita-button adwaita-button-out bg-accent hover:bg-accent-hover text-lg px-6 sm:px-24 py-4"
+      >
+        На главную
+      </a>
+    </div>
+  </PageHero>
 
-  <main class="flex-1 max-w-7xl mx-auto px-4 md:px-12 py-12 space-y-16">
-    <!-- Заголовок страницы -->
-    <section class="text-center">
-      <h1
-        class="text-4xl md:text-6xl font-bold tracking-tighter text-text leading-none mb-6"
-      >
-        Карта достопримечательностей
-      </h1>
-      <p
-        class="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto"
-      >
-        Интерактивная карта Набережных Челнов с отметками всех интересных мест
-      </p>
-      <div class="flex justify-center mt-12">
-        <a
-          href="/"
-          class="adwaita-button adwaita-button-out bg-accent hover:bg-accent-hover text-lg px-6 sm:px-24 py-4"
-        >
-          На главную
-        </a>
+  <!-- Сама карта -->
+  <section class="adwaita-card p-4 md:p-6">
+    <Mapping
+      client:only="react"
+      class="w-full h-162.5 rounded-2xl overflow-hidden"
+      attractions={[] as any}
+    />
+
+    <!-- Информация под картой -->
+    <section class="p-8 md:p-10 mt-6 max-w-7xl mx-auto text-center">
+      <h2 class="text-2xl font-semibold mb-6">Как пользоваться картой?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div>
+          <!-- Перенести всё это в global.css под названием иконки!-->
+          <div class="bg-secondary background-item mb-6">🖱️</div>
+          <h3 class="font-medium mb-2">Перемещение</h3>
+          <p class="text-text-secondary">
+            Зажми левую кнопку мыши и двигай карту
+          </p>
+        </div>
+        <div>
+          <div class="bg-secondary background-item mb-6">🔍</div>
+          <h3 class="font-medium mb-2">Приближение</h3>
+          <p class="text-text-secondary">
+            Колёсико мыши или кнопки + / -
+          </p>
+        </div>
+        <div>
+          <div class="bg-secondary background-item mb-6">📍</div>
+          <h3 class="font-medium mb-2">Метки</h3>
+          <p class="text-text-secondary">
+            Кликни на метку, чтобы увидеть информацию
+          </p>
+        </div>
       </div>
     </section>
-
-    <!-- Сама карта -->
-    <section class="adwaita-card p-4 md:p-6">
-      <Mapping
-        client:only="react"
-        class="w-full h-162.5 rounded-2xl overflow-hidden"
-        attractions={[] as any}
-      />
-
-      <!-- Информация под картой -->
-      <section class="p-8 md:p-10 mt-6 max-w-7xl mx-auto text-center">
-        <h2 class="text-2xl font-semibold mb-6">Как пользоваться картой?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-          <div>
-            <!-- Перенести всё это в global.css под названием иконки!-->
-            <div class="bg-secondary background-item mb-6">🖱️</div>
-            <h3 class="font-medium mb-2">Перемещение</h3>
-            <p class="text-text-secondary">
-              Зажми левую кнопку мыши и двигай карту
-            </p>
-          </div>
-          <div>
-            <div class="bg-secondary background-item mb-6">🔍</div>
-            <h3 class="font-medium mb-2">Приближение</h3>
-            <p class="text-text-secondary">
-              Колёсико мыши или кнопки + / -
-            </p>
-          </div>
-          <div>
-            <div class="bg-secondary background-item mb-6">📍</div>
-            <h3 class="font-medium mb-2">Метки</h3>
-            <p class="text-text-secondary">
-              Кликни на метку, чтобы увидеть информацию
-            </p>
-          </div>
-        </div>
-      </section>
-    </section>
-  </main>
-  <Footer />
-</Layout>
+  </section>
+</PageShell>

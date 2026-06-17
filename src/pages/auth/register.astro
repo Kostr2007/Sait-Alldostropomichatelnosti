@@ -1,65 +1,58 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import PageShell from '../../layouts/PageShell.astro';
+import FormInput from '../../components/FormInput.astro';
 ---
 
-<Layout>
-  <Header />
-  <main class="flex-1 max-w-md mx-auto py-30 md:py-60 px-4">
-    <div class="adwaita-card p-10" id="register-container">
-      <!-- Заголовок и форма -->
-      <div id="register-form-container">
-        <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
-        <form id="register-form" class="space-y-6" novalidate>
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            required
-            class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
-          />
-          <input
-            type="password"
-            id="password"
-            placeholder="Пароль (минимум 8 символов)"
-            required
-            minlength="8"
-            class="w-full p-4 rounded-2xl bg-surface border border-border focus:outline-none focus:border-primary"
-          />
+<PageShell mainClass="flex-1 max-w-md mx-auto py-30 md:py-60 px-4">
+  <div class="adwaita-card p-10" id="register-container">
+    <!-- Заголовок и форма -->
+    <div id="register-form-container">
+      <h1 class="text-3xl font-semibold mb-8 text-center">Создать аккаунт</h1>
+      <form id="register-form" class="space-y-6" novalidate>
+        <FormInput
+          type="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <FormInput
+          type="password"
+          id="password"
+          placeholder="Пароль (минимум 8 символов)"
+          required
+          minlength={8}
+        />
 
-          <button
-            type="submit"
-            id="submit-btn"
-            class="adwaita-button w-full bg-primary hover:bg-primary-hover py-4 text-lg font-medium transition-all"
-          >
-            Зарегистрироваться
-          </button>
-        </form>
-      </div>
-
-      <!-- Блок успеха (скрыт по умолчанию) -->
-      <div id="success-container" class="hidden text-center space-y-6">
-        <div class="text-6xl mb-4">🎉</div>
-        <h2 class="text-2xl font-semibold">Аккаунт создан!</h2>
-        <p class="text-text-secondary text-lg">
-          Мы отправили письмо с подтверждением на вашу почту.<br />
-          <strong>Проверьте почту (включая папку "Спам")</strong>
-        </p>
-        <a
-          href="/auth/login"
-          class="adwaita-button inline-block bg-success hover:bg-success-hover px-8 py-3 text-lg"
+        <button
+          type="submit"
+          id="submit-btn"
+          class="adwaita-button w-full bg-primary hover:bg-primary-hover py-4 text-lg font-medium transition-all"
         >
-          Перейти к входу
-        </a>
-      </div>
+          Зарегистрироваться
+        </button>
+      </form>
     </div>
-  </main>
-  <Footer />
-</Layout>
+
+    <!-- Блок успеха (скрыт по умолчанию) -->
+    <div id="success-container" class="hidden text-center space-y-6">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-2xl font-semibold">Аккаунт создан!</h2>
+      <p class="text-text-secondary text-lg">
+        Мы отправили письмо с подтверждением на вашу почту.<br />
+        <strong>Проверьте почту (включая папку "Спам")</strong>
+      </p>
+      <a
+        href="/auth/login"
+        class="adwaita-button inline-block bg-success hover:bg-success-hover px-8 py-3 text-lg"
+      >
+        Перейти к входу
+      </a>
+    </div>
+  </div>
+</PageShell>
 
 <script>
-  import { supabase } from '../../lib/supabase.ts';
+  import { signUpUser, validateEmail, validatePassword } from '../../lib/auth.ts';
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('register-form') as HTMLFormElement;
@@ -70,7 +63,7 @@ import Footer from '../../components/Footer.astro';
     const successContainer = document.getElementById('success-container');
 
     if (!form) {
-      console.error('❌ Форма не найдена');
+      console.error('Форма не найдена');
       return;
     }
 
@@ -85,76 +78,31 @@ import Footer from '../../components/Footer.astro';
       const email = emailInput.value.trim();
       const password = passwordInput.value.trim();
 
-      // === ВАЛИДАЦИЯ ===
-      if (!email || !password) {
-        alert('Пожалуйста, заполните все поля');
-        return;
-      }
-
-      // Проверка email
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        alert('Пожалуйста, введите корректный email адрес');
+      const emailError = validateEmail(email);
+      if (emailError) {
+        alert(emailError);
         emailInput.focus();
         return;
       }
 
-      // Проверка сложности пароля
-      if (password.length < 8) {
-        alert('Пароль должен быть не менее 8 символов');
+      const passwordError = validatePassword(password);
+      if (passwordError) {
+        alert(passwordError);
         passwordInput.focus();
         return;
       }
 
-      // Защита от самых очевидных паролей
-      const easyPasswords = [
-        '12345678',
-        'qwertyui',
-        'password',
-        '11111111',
-        '87654321',
-        '123456789',
-      ];
-      if (easyPasswords.includes(password.toLowerCase())) {
-        alert(
-          'Этот пароль слишком простой и часто используется. Придумайте другой.',
-        );
-        passwordInput.focus();
-        return;
-      }
-
-      const hasUpperCase = /[A-Z]/.test(password);
-      const hasLowerCase = /[a-z]/.test(password);
-      const hasNumbers = /\d/.test(password);
-      // const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password); // можно добавить
-
-      if (!hasUpperCase || !hasLowerCase || !hasNumbers) {
-        alert(
-          'Пароль должен содержать:\n• Хотя бы одну заглавную букву (A-Z)\n• Хотя бы одну строчную букву (a-z)\n• Хотя бы одну цифру (0-9)',
-        );
-        return;
-      }
-
-      // Если всё ок — блокируем кнопку
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Регистрация...';
       }
 
       try {
-        const { error } = await supabase.auth.signUp({
-          email: email,
-          password: password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/auth/confirm`,
-          },
-        });
+        const result = await signUpUser(email, password);
 
-        if (error) {
-          console.error('Supabase error:', error);
-          alert('Ошибка регистрации: ' + error.message);
+        if (!result.success) {
+          alert('Ошибка регистрации: ' + result.error);
         } else {
-          console.log('✅ Регистрация успешна!');
           if (formContainer && successContainer) {
             formContainer.classList.add('hidden');
             successContainer.classList.remove('hidden');
