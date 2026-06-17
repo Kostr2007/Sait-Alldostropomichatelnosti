@@ -70,7 +70,6 @@ import Footer from '../../components/Footer.astro';
     const successContainer = document.getElementById('success-container');
 
     if (!form) {
-      console.error('❌ Форма не найдена');
       return;
     }
 
@@ -151,10 +150,8 @@ import Footer from '../../components/Footer.astro';
         });
 
         if (error) {
-          console.error('Supabase error:', error);
           alert('Ошибка регистрации: ' + error.message);
         } else {
-          console.log('✅ Регистрация успешна!');
           if (formContainer && successContainer) {
             formContainer.classList.add('hidden');
             successContainer.classList.remove('hidden');
