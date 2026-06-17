@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -35,6 +35,17 @@ interface MapProps {
   "client:visible"?: boolean;
 }
 
+function isValidCoordinate(lat: number, lng: number): boolean {
+  return (
+    Number.isFinite(lat) &&
+    Number.isFinite(lng) &&
+    lat >= -90 &&
+    lat <= 90 &&
+    lng >= -180 &&
+    lng <= 180
+  );
+}
+
 export default function Map({
   attractions = [],
   className = "w-full h-162.5 rounded-3xl",
@@ -43,40 +54,66 @@ export default function Map({
 }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
+  const [mapError, setMapError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!mapRef.current || mapInstance.current) return;
 
-    // Создаём карту
-    mapInstance.current = L.map(mapRef.current, {
-      zoomControl: true,
-      attributionControl: true,
-    }).setView(center, zoom);
+    try {
+      // Создаём карту
+      mapInstance.current = L.map(mapRef.current, {
+        zoomControl: true,
+        attributionControl: true,
+      }).setView(center, zoom);
 
-    // Базовый слой OpenStreetMap
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
-      maxZoom: 19,
-    }).addTo(mapInstance.current);
-
-    // Добавляем маркеры
-    attractions.forEach((attr) => {
-      const marker = L.marker([attr.lat, attr.lng]).addTo(mapInstance.current!);
-
-      marker.bindPopup(
-        `
-        <div class="text-sm">
-          <b>${attr.title}</b><br>
-          <span class="text-gray-600">${attr.address}</span><br><br>
-          ${attr.description ? `<small>${attr.description}</small>` : ""}
-        </div>
-      `,
+      // Базовый слой OpenStreetMap
+      const tileLayer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-          closeButton: true,
-          className: "custom-popup",
+          attribution: "&copy; OpenStreetMap contributors",
+          maxZoom: 19,
         },
       );
-    });
+
+      tileLayer.on("tileerror", (event) => {
+        console.error("Ошибка загрузки тайла карты:", event.coords);
+      });
+
+      tileLayer.addTo(mapInstance.current);
+
+      // Добавляем маркеры
+      attractions.forEach((attr) => {
+        if (!isValidCoordinate(attr.lat, attr.lng)) {
+          console.error(
+            `Некорректные координаты для "${attr.title}": lat=${attr.lat}, lng=${attr.lng}`,
+          );
+          return;
+        }
+
+        const marker = L.marker([attr.lat, attr.lng]).addTo(
+          mapInstance.current!,
+        );
+
+        marker.bindPopup(
+          `
+          <div class="text-sm">
+            <b>${attr.title}</b><br>
+            <span class="text-gray-600">${attr.address}</span><br><br>
+            ${attr.description ? `<small>${attr.description}</small>` : ""}
+          </div>
+        `,
+          {
+            closeButton: true,
+            className: "custom-popup",
+          },
+        );
+      });
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Не удалось загрузить карту";
+      console.error("Ошибка инициализации карты:", err);
+      setMapError(message);
+    }
 
     // Cleanup
     return () => {
@@ -86,6 +123,16 @@ export default function Map({
       }
     };
   }, [attractions, center, zoom]);
+
+  if (mapError) {
+    return (
+      <div className={className + " flex items-center justify-center bg-surface border border-border"}>
+        <p className="text-text-secondary text-center p-4">
+          Не удалось загрузить карту: {mapError}
+        </p>
+      </div>
+    );
+  }
 
   return <div ref={mapRef} className={className} />;
 }

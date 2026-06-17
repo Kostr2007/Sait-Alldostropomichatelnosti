@@ -160,8 +160,10 @@ import Footer from '../../components/Footer.astro';
             successContainer.classList.remove('hidden');
           }
         }
-      } catch (err: any) {
-        alert('Что-то пошло не так: ' + err.message);
+      } catch (err: unknown) {
+        const message =
+          err instanceof Error ? err.message : 'Неизвестная ошибка';
+        alert('Что-то пошло не так: ' + message);
       } finally {
         if (
           submitBtn &&

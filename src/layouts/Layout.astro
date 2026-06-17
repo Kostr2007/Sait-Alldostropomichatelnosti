@@ -14,12 +14,17 @@ import '../styles/global.css';
     <!-- Заметки для себя! -->
     <script is:inline>
       // Заставляет сначала сделать его, а потом уже отрисовывать весь сайт.
-      const savedTheme =
-        localStorage.getItem('theme') ||
-        // Если пользователь впервые? Возвращает null и блокирует ||. Если нет, то уже проверяет светлую и тёмную тему.
-        (window.matchMedia('(prefers-color-scheme: light)').matches
+      var savedTheme;
+      try {
+        savedTheme = localStorage.getItem('theme');
+      } catch (_e) {
+        // localStorage может быть недоступен (приватный режим, ограничения браузера)
+      }
+      if (!savedTheme) {
+        savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches
           ? 'light'
-          : 'dark');
+          : 'dark';
+      }
 
       if (savedTheme === 'light') {
         document.documentElement.classList.add('light');
