@@ -2,61 +2,94 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { supabase } from '../../lib/supabase';
+
+const { data: { session } } = await supabase.auth.getSession();
+
+let profile = null;
+if (session) {
+  const { data } = await supabase
+    .from('profiles')
+    .select('full_name, avatar_url')
+    .eq('id', session.user.id)
+    .single();
+  profile = data;
+}
 ---
 
 <Layout>
   <Header />
   <main class="flex-1 max-w-7xl mx-auto py-30 md:py-60 px-4">
     <div class="adwaita-card md:p-10 p-8">
-      <div class="flex items-center gap-3 group justify-between">
-        <div class="bg-linear-300 from-dark to-text circle-button">Г</div>
-        <div>
-          <h1 class="text-3xl font-semibold tracking-tight">Профиль (Гость)</h1>
-        </div>
-      </div>
-      <hr class="my-8" />
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10">
-        <div
-          class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left"
-        >
-          <div class="bg-linear-300 from-dark to-text circle-button mb-6">
-            Г
-          </div>
 
-          <h1 class="text-3xl font-semibold tracking-tight mb-2">
-            Профиль (Гость)
-          </h1>
-          <p class="text-zinc-400">Не авторизован</p>
-
-          <!-- Можно добавить ещё что-то про аккаунт сюда -->
-          <div class="mt-8 w-full max-w-xs lg:max-w-none">
-            <!-- например статус, дата регистрации и т.д. -->
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <form id="profile">
-            <h1 class="text-3xl font-semibold mb-6">
-              Вы не зарегестрированы! Пожалуйста войдете в аккаунт!
-            </h1>
-            <div class="prose prose-invert max-w-none text-lg leading-relaxed">
-              <h3 class="text-2xl">
-                Так как вы не зарегестрированы, вы не можете:
-              </h3>
-              <ul class="list-disc space-y-2 mt-4">
-                <li>Добавлять достопримечательности</li>
-                <li>Писать комментарии</li>
-                <li>Ставить лайки, избранное, дизлайки и жалобы</li>
-                <li>И многое другое...</li>
-              </ul>
-              <p class="mt-6">
-                Подробности можно узнать <a href="#" class="underline">тут</a>.
-              </p>
+      <!-- === АВТОРИЗОВАННЫЙ ПОЛЬЗОВАТЕЛЬ === -->
+      {session ? (
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10">
+          
+          <!-- Левая колонка — Информация об аккаунте -->
+          <div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div class="bg-linear-300 from-dark to-text circle-button mb-6 text-6xl">
+              {(session.user.email?.[0] || 'Г').toUpperCase()}
             </div>
-          </form>
+
+            <h1 class="text-3xl font-semibold tracking-tight mb-2">
+              {profile?.full_name || session.user.email?.split('@')[0] || 'Пользователь'}
+            </h1>
+            <p class="text-text">{session.user.email}</p>
+
+            <div class="mt-8 w-full max-w-xs lg:max-w-none text-sm space-y-2">
+              <p>✅ Аккаунт подтверждён</p>
+              <p>📅 Зарегистрирован: {new Date(session.user.created_at).toLocaleDateString('ru-RU')}</p>
+            </div>
+          </div>
+
+          <!-- Правая колонка -->
+          <div class="lg:col-span-7">
+            <h2 class="text-3xl font-semibold mb-6">Добро пожаловать в профиль!</h2>
+            <p class="text-lg text-text-secondary">Здесь будет вся твоя активность, настройки и т.д.</p>
+            
+            <button 
+              onclick="supabase.auth.signOut().then(() => window.location.href = '/')"
+              class="adwaita-button mt-8 bg-destructive hover:bg-destructive-hover"
+            >
+              Выйти из аккаунта
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <!-- === ГОСТЬ === -->
+        <>
+          <div class="flex items-center gap-3 group justify-between mb-8">
+            <div class="bg-linear-300 from-dark to-text circle-button">Г</div>
+            <h1 class="text-3xl font-semibold tracking-tight">Профиль (Гость)</h1>
+          </div>
+          <hr class="my-8" />
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10">
+            <div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div class="bg-linear-300 from-dark to-text circle-button mb-6">Г</div>
+              <h1 class="text-3xl font-semibold tracking-tight mb-2">Профиль (Гость)</h1>
+              <p class="text-text-secondary">Не авторизован</p>
+            </div>
+
+            <div class="lg:col-span-7">
+              <h2 class="text-3xl font-semibold mb-6">Вы не зарегистрированы!</h2>
+              <div class="prose prose-invert">
+                <p>Пожалуйста, войдите или зарегистрируйтесь.</p>
+                <a href="/auth/register" class="adwaita-button inline-block mt-6">
+                  Создать аккаунт
+                </a>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
     </div>
   </main>
   <Footer />
 </Layout>
+
+<script>
+  import { supabase } from '../../lib/supabase.ts';
+</script>

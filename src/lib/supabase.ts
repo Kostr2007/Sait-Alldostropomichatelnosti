@@ -1,12 +1,13 @@
+// src/lib/supabase.ts
 import { createBrowserClient } from '@supabase/ssr';
 
-const suopabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
-const suopabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
-if (!suopabaseUrl || !suopabaseAnonKey) {
+if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error(
-    '=== ОШИБКА! === Отсутствуют PUBLIC_SUPABASE_URL или PUBLIC_SUPABASE_ANON_KEY в .env',
+    'Отсутствуют PUBLIC_SUPABASE_URL или PUBLIC_SUPABASE_ANON_KEY в .env',
   );
 }
 
-export const supabase = createBrowserClient(suopabaseUrl, suopabaseAnonKey);
+export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey);
