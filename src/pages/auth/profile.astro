@@ -72,15 +72,17 @@ if (session) {
               <p class="text-text-secondary">Не авторизован</p>
             </div>
 
-            <div class="lg:col-span-7">
-              <h2 class="text-3xl font-semibold mb-6">Вы не зарегистрированы!</h2>
-              <div class="prose prose-invert">
-                <p>Пожалуйста, войдите или зарегистрируйтесь.</p>
-                <a href="/auth/register" class="adwaita-button inline-block mt-6">
-                  Создать аккаунт
-                </a>
-              </div>
-            </div>
+<div class="lg:col-span-7">
+  <h2 class="text-3xl font-semibold mb-6">Вы не зарегистрированы!</h2>
+  
+  <div class="prose prose-invert">
+    <p>Пожалуйста, войдите или зарегистрируйтесь.</p>
+  </div>
+
+  <a href="/auth/register" class="adwaita-button inline-block mt-6">
+    Создать аккаунт
+  </a>
+</div>
           </div>
         </>
       )}
@@ -91,5 +93,5 @@ if (session) {
 </Layout>
 
 <script>
-  import { supabase } from '../../lib/supabase.ts';
+import { supabase } from '../../lib/supabase.ts';
 </script>
